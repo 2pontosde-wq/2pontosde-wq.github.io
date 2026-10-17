@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://2pontosde-wq.github.io/sitemap.xml

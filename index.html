@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor Trindade — Publicidade, design &amp; mais</title>
+<meta name="description" content="Portfólio criativo: campanhas, embalagens, personalizados, papelaria, sites e vídeos.">
+<link rel="canonical" href="https://2pontosde-wq.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Victor Trindade — Publicidade, design &amp; mais">
+<meta property="og:description" content="Portfólio criativo: campanhas, embalagens, personalizados, papelaria, sites e vídeos.">
+<meta property="og:url" content="https://2pontosde-wq.github.io/">
+<meta property="og:image" content="https://2pontosde-wq.github.io/static/media/ecd9f3220c8da80258847023ff1b25e2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3a2414">
+<link rel="icon" href="/static/media/46d01f29495acaa10f692eaa494dba34.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Fredoka:wght@500;600;700&family=Kalam:wght@400;700&family=Permanent+Marker&family=Poppins:wght@600;800&family=Silkscreen:wght@400;700&display=swap">
+<link rel="stylesheet" href="/static/css/site.css?v=1792207625">
+
+</head>
+<body data-initial="">
+<div id="app"></div>
+<template id="dc-template">
+
+
+<div class="{{sceneCls}}" data-scene="1">
+  <svg class="bigstar" style="right:-48px;top:70px;width:190px" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="#f2e33a" stroke="#fff" stroke-width="3" stroke-linejoin="round"></path></svg>
+  <svg class="bigstar" style="left:-60px;top:46%;width:170px;animation-direction:reverse" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="#f2e33a" stroke="#fff" stroke-width="3" stroke-linejoin="round"></path></svg>
+
+
+
+  <nav class="nav" aria-label="{{t.navAria}}">
+    <button class="logo" onClick="{{goHome}}" aria-label="Victor Trindade — home">
+      <svg class="lstar" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="#ffe14d" stroke="#5a3820" stroke-width="6" stroke-linejoin="round"></path></svg>
+      <span class="wm">victor</span><span class="tg">trindade</span>
+    </button>
+    <div class="links" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+      <button class="{{nav.home}}" onClick="{{goHome}}">{{t.nHome}}</button>
+      <button id="nav-sobre" class="{{nav.sobre}}" onClick="{{openSobre}}">{{t.nSobre}}</button>
+      <button id="nav-projetos" class="{{nav.projetos}}" onClick="{{openProjetos}}">{{t.nProjetos}}</button>
+      <button id="nav-skills" class="{{nav.skills}}" onClick="{{openSkills}}">{{t.nSkills}}</button>
+      <button id="nav-videos" class="{{nav.videos}}" onClick="{{openVideos}}">{{t.nVideos}}</button>
+      <button id="nav-playlist" class="{{nav.playlist}}" onClick="{{openPlaylist}}">{{t.nPlaylist}}</button>
+      <button id="nav-metricas" class="{{nav.metricas}}" onClick="{{openMetricas}}">{{t.nMetricas}}</button>
+      <button id="nav-contato" class="{{nav.contato}}" onClick="{{openContato}}">{{t.nContato}}</button>
+    </div>
+    <button class="langbtn" onClick="{{toggleLang}}" aria-label="{{t.langAria}}"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M2 10 H18 M10 2 C6 6 6 14 10 18 M10 2 C14 6 14 14 10 18" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>{{t.langBtn}}</button>
+  </nav>
+
+  <div class="band" style="top:{{bandTop}}px" aria-hidden="true"><div class="mtrack"><span>{{t.band}}</span><span>{{t.band}}</span><span>{{t.band}}</span><span>{{t.band}}</span></div></div>
+  <div class="stage" style="width:1180px;height:736px;margin-left:-590px;transform:scale({{stS}})">
+  <sc-for list="{{stars}}" as="s" hint-placeholder-count="8">
+    <svg class="{{s.cls}}" style="left:{{s.x}}%;top:{{s.y}}%;width:{{s.w}}px;animation-delay:{{s.dl}}s" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="{{s.c}}" stroke="#fff" stroke-width="6" stroke-linejoin="round"></path></svg>
+  </sc-for>
+
+  <button class="{{d.hw1.cls}}" style="left:{{d.hw1.x}}%;top:{{d.hw1.y}}%;z-index:{{d.hw1.z}};transform:rotate({{d.hw1.r}}deg) scale({{d.hw1.s}});animation-delay:.15s" onPointerDown="{{d.hw1.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.hw1.click}}" aria-label="{{t.h1}}">
+    <span class="hw ow">{{t.h1}}<span class="pin"></span></span>
+  </button>
+  <button class="{{d.hw2.cls}}" style="left:{{d.hw2.x}}%;top:{{d.hw2.y}}%;z-index:{{d.hw2.z}};transform:rotate({{d.hw2.r}}deg) scale({{d.hw2.s}});animation-delay:.3s" onPointerDown="{{d.hw2.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.hw2.click}}" aria-label="{{t.h2}}">
+    <span class="hw ow">{{t.h2}}</span>
+  </button>
+  <button class="{{d.hw3.cls}}" style="left:{{d.hw3.x}}%;top:{{d.hw3.y}}%;z-index:{{d.hw3.z}};transform:rotate({{d.hw3.r}}deg) scale({{d.hw3.s}});animation-delay:.45s" onPointerDown="{{d.hw3.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.hw3.click}}" aria-label="{{t.h3}}">
+    <span class="hw big oy">{{t.h3}}<span class="pin" style="right:34px"></span></span>
+  </button>
+  <button class="{{d.hpill.cls}}" style="left:{{d.hpill.x}}%;top:{{d.hpill.y}}%;z-index:{{d.hpill.z}};transform:rotate({{d.hpill.r}}deg) scale({{d.hpill.s}});animation-delay:.6s" onPointerDown="{{d.hpill.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.hpill.click}}" aria-label="{{t.pill}}">
+    <span class="hpill">{{t.pill}} <i>↗</i></span>
+  </button>
+  <button class="{{d.blk1.cls}}" style="left:{{d.blk1.x}}%;top:{{d.blk1.y}}%;z-index:{{d.blk1.z}};transform:rotate({{d.blk1.r}}deg) scale({{d.blk1.s}});animation-delay:.7s" onPointerDown="{{d.blk1.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.blk1.click}}" aria-label="{{t.blk1}}">
+    <span class="blkwrap"><span class="blk br">{{t.blk1}}</span><span class="blksub">{{t.blkSub}}</span></span>
+  </button>
+
+  <button class="{{d.im.cls}} desk-only" style="left:{{d.im.x}}%;top:{{d.im.y}}%;z-index:{{d.im.z}};transform:rotate({{d.im.r}}deg) scale({{d.im.s}});animation-delay:.5s" onPointerDown="{{d.im.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.im.click}}" aria-label="{{t.imAria}}">
+    <div class="im"><div class="t"><span>VT Messenger</span><span>_ □ x</span></div><div class="b"><img src="/static/media/045e481ede67d72fdd419c7b30ce148c.png" alt="" style="background:#ffe14d;padding:3px 2px 0;object-fit:contain;object-position:50% 100%"><div><b style="font:600 14px Fredoka,sans-serif">Victor Trindade</b><br><span class="on">{{t.imOn}}</span></div></div><div class="cta">{{t.imCta}}</div></div>
+  </button>
+  <button class="{{d.check.cls}}" style="left:{{d.check.x}}%;top:{{d.check.y}}%;z-index:{{d.check.z}};transform:rotate({{d.check.r}}deg) scale({{d.check.s}});animation-delay:.65s" onPointerDown="{{d.check.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.check.click}}" aria-label="{{t.checkAria}}">
+    <div class="note-y" style="white-space:pre-line"><span class="pin b"></span>{{t.check}}</div>
+  </button>
+  <button class="{{d.cracha.cls}} desk-only" style="left:{{d.cracha.x}}%;top:{{d.cracha.y}}%;z-index:{{d.cracha.z}};transform:rotate({{d.cracha.r}}deg) scale({{d.cracha.s}});animation-delay:.8s" onPointerDown="{{d.cracha.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.cracha.click}}" aria-label="{{t.crachaAria}}">
+    <div class="cracha"><span class="strap"></span><span class="clipm"></span><span class="hole"></span><div class="chead">VT STUDIO ✦ STAFF</div><img class="cav" src="/static/media/46d01f29495acaa10f692eaa494dba34.png" alt=""><b>Victor Trindade</b><small>{{t.crachaRole}}</small><div class="cbar"></div><div class="cfoot">{{t.crachaFoot}}</div></div>
+  </button>
+  <button class="{{d.ticket.cls}} desk-only" style="left:{{d.ticket.x}}%;top:{{d.ticket.y}}%;z-index:{{d.ticket.z}};transform:rotate({{d.ticket.r}}deg) scale({{d.ticket.s}});animation-delay:.95s" onPointerDown="{{d.ticket.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.ticket.click}}" aria-label="{{t.ticketAria}}">
+    <div class="ticket" style="white-space:pre-line"><span class="pin"></span>{{t.ticket}}</div>
+  </button>
+  <button class="{{d.blue.cls}} desk-only" style="left:{{d.blue.x}}%;top:{{d.blue.y}}%;z-index:{{d.blue.z}};transform:rotate({{d.blue.r}}deg) scale({{d.blue.s}});animation-delay:.55s" onPointerDown="{{d.blue.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.blue.click}}" aria-label="{{t.blueAria}}">
+    <div class="note-b"><span class="pin"></span>{{t.blue}}</div>
+  </button>
+  <button class="{{d.yt.cls}}" style="left:{{d.yt.x}}%;top:{{d.yt.y}}%;z-index:{{d.yt.z}};transform:rotate({{d.yt.r}}deg) scale({{d.yt.s}});animation-delay:.7s" onPointerDown="{{d.yt.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.yt.click}}" aria-label="{{t.ytAria}}">
+    <div class="vpc"><span class="tape"></span><div class="vthumb"><video data-auto="1" src="/static/media/2155a5d02530347dbc02e2c8a8581dc0.mp4" poster="/static/media/354da7a1f9d7a0058f43b7020f0ec827.jpg" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" preload="metadata" aria-hidden="true"></video></div><span class="psticker"><svg width="18" height="20" viewBox="0 0 20 22" aria-hidden="true"><path d="M3 1 L19 11 L3 21 Z" fill="#fff"></path></svg></span><div class="vlbl"><span class="blk br">{{t.ytTitle}}</span><small>{{t.ytSub}}</small></div></div>
+  </button>
+  <button class="{{d.sketch.cls}} desk-only" style="left:{{d.sketch.x}}%;top:{{d.sketch.y}}%;z-index:{{d.sketch.z}};transform:rotate({{d.sketch.r}}deg) scale({{d.sketch.s}});animation-delay:.85s" onPointerDown="{{d.sketch.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.sketch.click}}" aria-label="Creative Ideas Better Results">
+    <div class="sketch"><span class="pin y"></span>Creative Ideas Better Results :)</div>
+  </button>
+  <button class="{{d.toggle.cls}} desk-only" style="left:{{d.toggle.x}}%;top:{{d.toggle.y}}%;z-index:{{d.toggle.z}};transform:rotate({{d.toggle.r}}deg) scale({{d.toggle.s}});animation-delay:1.05s" onPointerDown="{{d.toggle.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.toggle.click}}" aria-label="{{t.togAria}}" aria-pressed="{{togOn}}">
+    <span class="{{togCls}}"><i></i></span>
+  </button>
+  <button class="{{d.winbtns.cls}} desk-only" style="left:{{d.winbtns.x}}%;top:{{d.winbtns.y}}%;z-index:{{d.winbtns.z}};transform:rotate({{d.winbtns.r}}deg) scale({{d.winbtns.s}});animation-delay:1.1s" onPointerDown="{{d.winbtns.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.winbtns.click}}" aria-label="{{t.decoAria}}">
+    <span class="wbtns"><span>_</span><span>□</span><span>×</span></span>
+  </button>
+  <button class="{{d.cursor.cls}}" style="left:{{d.cursor.x}}%;top:{{d.cursor.y}}%;z-index:{{d.cursor.z}};transform:rotate({{d.cursor.r}}deg) scale({{d.cursor.s}});animation-delay:1.15s" onPointerDown="{{d.cursor.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.cursor.click}}" aria-label="{{t.decoAria}}">
+    <svg width="44" height="52" viewBox="0 0 44 52" aria-hidden="true"><path d="M4 4 L4 42 L14 33 L21 48 L28 45 L21 30 L35 30 Z" fill="#ffe14d" stroke="#5a3820" stroke-width="3" stroke-linejoin="round"></path></svg>
+  </button>
+  <button class="{{d.bubble.cls}}" style="left:{{d.bubble.x}}%;top:{{d.bubble.y}}%;z-index:{{d.bubble.z}};transform:rotate({{d.bubble.r}}deg) scale({{d.bubble.s}});animation-delay:1.2s" onPointerDown="{{d.bubble.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.bubble.click}}" aria-label="{{t.decoAria}}">
+    <span class="bub"><i></i><i></i><i></i></span>
+  </button>
+  <button class="{{d.pencil.cls}} desk-only" style="left:{{d.pencil.x}}%;top:{{d.pencil.y}}%;z-index:{{d.pencil.z}};transform:rotate({{d.pencil.r}}deg) scale({{d.pencil.s}});animation-delay:1.25s" onPointerDown="{{d.pencil.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.pencil.click}}" aria-label="{{t.decoAria}}">
+    <svg width="26" height="170" viewBox="0 0 26 170" aria-hidden="true"><rect x="3" y="18" width="20" height="120" fill="#f5c842" stroke="#a87c12" stroke-width="1.5"></rect><path d="M9.6 18 V138 M16.4 18 V138" stroke="#e0b232" stroke-width="2"></path><rect x="3" y="4" width="20" height="16" rx="3" fill="#ef7fa3" stroke="#b9506f" stroke-width="1.5"></rect><rect x="2" y="16" width="22" height="7" fill="#c9ccd2" stroke="#8a9098" stroke-width="1"></rect><path d="M3 138 L13 164 L23 138 Z" fill="#f3d9b1" stroke="#a87c12" stroke-width="1.5"></path><path d="M10 156 L13 164 L16 156 Z" fill="#2b2a33"></path><text x="13" y="90" font-size="0">VT</text></svg>
+  </button>
+  <button class="{{d.ball.cls}} desk-only" style="left:{{d.ball.x}}%;top:{{d.ball.y}}%;z-index:{{d.ball.z}};transform:rotate({{d.ball.r}}deg) scale({{d.ball.s}});animation-delay:1.3s" onPointerDown="{{d.ball.down}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragUp}}" onPointerCancel="{{dragUp}}" onClick="{{d.ball.click}}" aria-label="{{t.ballAria}}">
+    <svg width="74" height="70" viewBox="0 0 74 70" aria-hidden="true"><path d="M10 30 L18 10 L34 6 L50 4 L64 16 L70 34 L62 54 L44 66 L24 64 L8 50 Z" fill="#f4f1ea" stroke="#c9c1b2" stroke-width="2"></path><path d="M18 10 L30 28 L50 4 M30 28 L24 64 M30 28 L62 54 M30 28 L8 50 M44 40 L70 34 M44 40 L44 66" fill="none" stroke="#c9c1b2" stroke-width="1.5"></path></svg>
+  </button>
+
+  </div>
+  <div class="{{dimCls}}" onClick="{{close}}" aria-hidden="true"></div>
+
+  <div class="cathint m-only" aria-hidden="true"><span>{{t.swipeMore}}</span><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 6 H19 M14 1 L20 6 L14 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  <div class="catwrap" style="width:{{catW}};left:{{catL}}">
+    <div id="cscroll" style="gap:{{catGap}}" class="{{catsCls}}" role="list" aria-label="{{t.catsAria}}" onScroll="{{catScroll}}" onPointerDown="{{catDown}}" onPointerMove="{{catMove}}" onPointerUp="{{catUp}}" onPointerCancel="{{catUp}}" onWheel="{{catWheel}}">
+      <sc-for list="{{cats}}" as="c" hint-placeholder-count="7">
+        <div role="listitem" class="citem" aria-hidden="{{c.hid}}">
+          <button id="{{c.id}}" class="{{c.cls}}" onClick="{{c.open}}" aria-label="{{c.aria}}" tabindex="{{c.tab}}">
+            <img src="{{c.icon}}" alt="" style="animation-delay:{{c.dl}}s" draggable="false">
+            <span class="lbl">{{c.label}}<small>{{c.sub}}</small></span>
+          </button>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <button class="tidy desk-only" onClick="{{tidy}}">{{t.tidy}}</button>
+
+  <sc-if value="{{w.show}}" hint-placeholder-val="{{ false }}">
+    <div class="{{w.cls}}" role="dialog" aria-modal="true" aria-labelledby="win-title" onKeyDown="{{winKey}}" style="left:{{w.l}};top:{{w.t}};width:{{w.wd}};height:{{w.ht}};transform:{{w.tf}};opacity:{{w.op}};transition:{{w.tr}}">
+      <div class="tbar">
+        <img src="{{w.icon}}" alt="" style="width:26px;height:26px;flex:none;object-fit:contain">
+        <h2 id="win-title">{{w.title}}</h2>
+        <sc-if value="{{w.reopen}}" hint-placeholder-val="{{ false }}"><button class="tbtn tbtn2" aria-label="{{t.reopen}}" title="{{t.reopen}}" onClick="{{reopenSides}}"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="5" width="11" height="11" rx="2" fill="none" stroke="#fff" stroke-width="2.2"></rect><path d="M7 2 H18 V13" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></sc-if>
+        <button id="win-close" class="tbtn" aria-label="{{t.close}}" onClick="{{close}}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+      </div>
+      <div class="{{w.mainCls}}">
+        <sc-if value="{{w.hasFilters}}" hint-placeholder-val="{{ true }}">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="6">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{w.noFilters}}" hint-placeholder-val="{{ false }}"><div class="top-pad"></div></sc-if>
+
+        <sc-if value="{{v.embD}}" hint-placeholder-val="{{ false }}">
+          <div class="emb3d">
+              <div class="{{box.stageCls}}" onPointerDown="{{box.down}}" onPointerMove="{{box.move}}" onPointerUp="{{box.up}}" onPointerCancel="{{box.up}}"><div class="glbhost" data-glb="{{glbSrc}}"></div>
+                <div class="ped"></div>
+                <div class="hint">{{t.embHint}}</div>
+                <div class="p3wrap" role="img" aria-label="{{t.embAria}}">
+                  <div class="{{box.cls}}" style="transform:rotateX({{box.rx}}deg) rotateY({{box.ry}}deg) scale({{box.zoom}})">
+                    <sc-if value="{{cup.isBox}}" hint-placeholder-val="{{ true }}">
+                    <div class="f dots-p" style="width:230px;height:180px;transform:translate(-115px,-90px) translateZ(85px);white-space:pre-line">{{t.boxFront}}<span style="font-size:22px;margin-top:4px">♥</span></div>
+                    <div class="f dots-p" style="width:230px;height:180px;transform:translate(-115px,-90px) rotateY(180deg) translateZ(85px)"></div>
+                    <div class="f dots-p side-p" style="width:170px;height:180px;transform:translate(-85px,-90px) rotateY(90deg) translateZ(115px)"></div>
+                    <div class="f dots-p side-p" style="width:170px;height:180px;transform:translate(-85px,-90px) rotateY(-90deg) translateZ(115px)"></div>
+                    <div class="f side-p" style="width:230px;height:170px;transform:translate(-115px,-85px) rotateX(-90deg) translateZ(90px)"></div>
+                    <div class="f tissue" style="width:226px;height:166px;transform:translate(-113px,-83px) rotateX(90deg) translateZ(-78px)">{{t.boxIn}}</div>
+                    <div class="f lid dots-p" style="width:230px;height:170px;transform:translate3d(-115px,-90px,-85px) rotateX({{box.lid}}deg)"></div>
+                    </sc-if>
+                    <sc-if value="{{cup.isCup}}" hint-placeholder-val="{{ false }}">
+                      <sc-for list="{{cup.parts}}" as="cp" hint-placeholder-count="40"><div class="{{cp.cls}}" style="width:{{cp.w}}px;height:{{cp.h}}px;left:{{cp.l}}px;top:{{cp.t}}px;transform:{{cp.tf}};clip-path:{{cp.clip}};background:{{cp.bg}};filter:brightness({{cp.b}});border:{{cp.bd}};border-radius:{{cp.rad}}"></div></sc-for>
+                    </sc-if>
+                  </div>
+                </div>
+              </div>
+              <div class="ctrls">
+                <sc-if value="{{box.hasLid}}" hint-placeholder-val="{{ true }}"><button class="chip pink" onClick="{{box.toggle}}">{{box.lidLabel}}</button></sc-if>
+                <button class="chip" onClick="{{box.zin}}" aria-label="{{t.zoomIn}}">Zoom +</button>
+                <button class="chip" onClick="{{box.zout}}" aria-label="{{t.zoomOut}}">Zoom −</button>
+                <button class="chip" onClick="{{box.reset}}"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10 A6 6 0 1 1 13.5 5.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path><path d="M12 2 L15 5.5 L11 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{t.reset}}</button>
+              </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.emb}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:18px">
+            <div><div class="ttl"><h3 class="h3">{{emb.name}}</h3><span class="demo">{{t.demo1}}</span></div><p class="kick">{{t.embIntro}}</p></div>
+            <div>
+              <div class="{{box.stageCls}}" onPointerDown="{{box.down}}" onPointerMove="{{box.move}}" onPointerUp="{{box.up}}" onPointerCancel="{{box.up}}"><div class="glbhost" data-glb="{{glbSrc}}"></div>
+                <div class="ped"></div>
+                <div class="hint">{{t.embHint}}</div>
+                <div class="p3wrap" role="img" aria-label="{{t.embAria}}">
+                  <div class="{{box.cls}}" style="transform:rotateX({{box.rx}}deg) rotateY({{box.ry}}deg) scale({{box.zoom}})">
+                    <sc-if value="{{cup.isBox}}" hint-placeholder-val="{{ true }}">
+                    <div class="f dots-p" style="width:230px;height:180px;transform:translate(-115px,-90px) translateZ(85px);white-space:pre-line">{{t.boxFront}}<span style="font-size:22px;margin-top:4px">♥</span></div>
+                    <div class="f dots-p" style="width:230px;height:180px;transform:translate(-115px,-90px) rotateY(180deg) translateZ(85px)"></div>
+                    <div class="f dots-p side-p" style="width:170px;height:180px;transform:translate(-85px,-90px) rotateY(90deg) translateZ(115px)"></div>
+                    <div class="f dots-p side-p" style="width:170px;height:180px;transform:translate(-85px,-90px) rotateY(-90deg) translateZ(115px)"></div>
+                    <div class="f side-p" style="width:230px;height:170px;transform:translate(-115px,-85px) rotateX(-90deg) translateZ(90px)"></div>
+                    <div class="f tissue" style="width:226px;height:166px;transform:translate(-113px,-83px) rotateX(90deg) translateZ(-78px)">{{t.boxIn}}</div>
+                    <div class="f lid dots-p" style="width:230px;height:170px;transform:translate3d(-115px,-90px,-85px) rotateX({{box.lid}}deg)"></div>
+                    </sc-if>
+                    <sc-if value="{{cup.isCup}}" hint-placeholder-val="{{ false }}">
+                      <sc-for list="{{cup.parts}}" as="cp" hint-placeholder-count="40"><div class="{{cp.cls}}" style="width:{{cp.w}}px;height:{{cp.h}}px;left:{{cp.l}}px;top:{{cp.t}}px;transform:{{cp.tf}};clip-path:{{cp.clip}};background:{{cp.bg}};filter:brightness({{cp.b}});border:{{cp.bd}};border-radius:{{cp.rad}}"></div></sc-for>
+                    </sc-if>
+                  </div>
+                </div>
+                <div class="vstand" onPointerDown="{{stop}}">
+                  <video class="vcard" data-auto="1" style="padding:0;object-fit:cover" src="/static/media/9e64decfc69e9f881ab32a5193569e1e.mp4" poster="/static/media/be476ffe9ba611812fb6bbf7f9fed1cc.jpg" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" aria-label="{{t.embVideo}}"></video>
+                </div>
+              </div>
+              <div class="ctrls">
+                <sc-if value="{{box.hasLid}}" hint-placeholder-val="{{ true }}"><button class="chip pink" onClick="{{box.toggle}}">{{box.lidLabel}}</button></sc-if>
+                <button class="chip" onClick="{{box.zin}}" aria-label="{{t.zoomIn}}">Zoom +</button>
+                <button class="chip" onClick="{{box.zout}}" aria-label="{{t.zoomOut}}">Zoom −</button>
+                <button class="chip" onClick="{{box.reset}}"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10 A6 6 0 1 1 13.5 5.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path><path d="M12 2 L15 5.5 L11 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{t.reset}}</button>
+              </div>
+            </div>
+            <div class="thumbs" role="group" aria-label="{{t.embProjAria}}" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{embProjects}}" as="p" hint-placeholder-count="3">
+                <button class="{{p.cls}}" onClick="{{p.pick}}"><img class="tico2" src="{{p.ico}}" alt="" draggable="false"><span>{{p.short}}</span></button>
+              </sc-for>
+            </div>
+            <h4 class="h4" style="margin:4px 0 -6px">{{t.popDone}}</h4>
+            <div class="mmgrid" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{embDone}}" as="dn" hint-placeholder-count="4">
+                <button class="{{dn.cls}}" onClick="{{dn.pick}}">
+                  <span class="mmstage"><span class="mmtilt"><span class="mmspin" style="animation-delay:{{dn.dl}}s"><sc-for list="{{dn.parts}}" as="mp" hint-placeholder-count="20"><i class="{{mp.cls}}" style="width:{{mp.w}}px;height:{{mp.h}}px;left:{{mp.l}}px;top:{{mp.t}}px;transform:{{mp.tf}};clip-path:{{mp.clip}};background:{{mp.bg}};filter:brightness({{mp.b}});border:{{mp.bd}};border-radius:{{mp.rad}}"></i></sc-for></span></span></span>
+                  <b>{{dn.name}}</b><small>{{dn.type}}</small>
+                </button>
+              </sc-for>
+            </div>
+            <div class="chips" role="tablist" aria-label="{{t.tabsAria}}" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="5">
+                <button role="tab" aria-selected="{{tb.on}}" class="{{tb.cls}}" onClick="{{tb.pick}}">{{tb.label}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{tab.sobre}}" hint-placeholder-val="{{ true }}">
+              <div class="case">
+                <div><b>{{t.cConceito}}</b>{{t.eConceito}}</div>
+                <div><b>{{t.cDesafio}}</b>{{t.eDesafio}}</div>
+                <div><b>{{t.cProcesso}}</b>{{t.eProcesso}}</div>
+                <div><b>{{t.cResultado}}</b>{{t.eResultado}}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.processo}}" hint-placeholder-val="{{ false }}">
+              <div class="chips" style="align-items:center;font:600 14px Archivo,sans-serif">
+                <sc-for list="{{t.steps}}" as="sp" hint-placeholder-count="5"><span class="chip">{{sp}}</span></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.faca}}" hint-placeholder-val="{{ false }}">
+              <div class="sheet" style="max-width:560px;position:relative">
+                <svg viewBox="0 0 400 300" role="img" aria-label="{{t.dieAria}}" style="width:100%;display:block">
+                  <rect x="120" y="100" width="120" height="90" fill="#fde3ee" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="40" y="100" width="80" height="90" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="240" y="100" width="80" height="90" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="120" y="20" width="120" height="80" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="120" y="190" width="120" height="80" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <path d="M120 100 H240 M120 190 H240 M120 100 V190 M240 100 V190" stroke="#e9558b" stroke-width="2" stroke-dasharray="6 5"></path>
+                  <path d="M320 110 L345 118 L345 172 L320 180 M40 110 L15 118 L15 172 L40 180" fill="none" stroke="#1d1a17" stroke-width="2"></path>
+                </svg>
+                <span style="position:absolute;left:0;right:0;top:calc(18px + 46%);text-align:center;font:600 12px Archivo,sans-serif">{{t.dieFront}}</span>
+                <span style="position:absolute;left:0;right:0;top:calc(18px + 18%);text-align:center;font:600 12px Archivo,sans-serif">{{t.dieLid}}</span>
+                <span style="position:absolute;left:0;right:0;bottom:14px;text-align:center;font:600 11px Archivo,sans-serif;color:#8a1a45">{{t.dieNote}}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.fotos}}" hint-placeholder-val="{{ false }}">
+              <div class="cards">
+                <div class="card"><img class="ci" src="/static/media/f26c9883730ec9b14edd7ce926b862ad.jpg" alt="{{t.ph1}}"><div class="cb">{{t.ph1}}</div></div>
+                <div class="card"><img class="ci" src="/static/media/5294fb1a858206da3b4d6886042ddb06.jpg" alt="{{t.ph2}}"><div class="cb">{{t.ph2}}</div></div>
+                <div class="card"><img class="ci" src="/static/media/c042e28079118ef6a4ac241526e1d323.jpg" alt="{{t.ph3}}"><div class="cb">{{t.ph3}}</div></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.apps}}" hint-placeholder-val="{{ false }}">
+              <div class="case">
+                <div><b>{{t.cMateriais}}</b>{{t.eMateriais}}</div>
+                <div><b>{{t.cAplicacoes}}</b>{{t.eAplicacoes}}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.grafica}}" hint-placeholder-val="{{ false }}">
+          <div class="emb3d grmain">
+            <div class="prwrap">
+              <div class="{{box.stageCls}} prstage" onPointerDown="{{box.down}}" onPointerMove="{{box.move}}" onPointerUp="{{box.up}}" onPointerCancel="{{box.up}}">
+                <div class="ped"></div>
+                <div class="hint">{{t.prHint}}</div>
+                <div class="p3wrap prw">
+                  <div class="{{box.cls}}" style="transform:rotateX({{box.rx}}deg) rotateY({{box.ry}}deg) scale({{box.zoom}})">
+                    <sc-if value="{{pr.isCard}}" hint-placeholder-val="{{ true }}">
+                      <div class="{{pr.cardCls}}">
+                        <div class="pface" style="background-image:url({{pr.front}})">
+                          <sc-if value="{{pr.uvOn}}" hint-placeholder-val="{{ true }}"><div class="uv" style="-webkit-mask-image:url({{pr.mask}});mask-image:url({{pr.mask}})"><i class="uvs" style="transform:translateX({{pr.shx}}%)"></i></div></sc-if>
+                          <sc-if value="{{pr.showMask}}" hint-placeholder-val="{{ false }}"><div class="uvm" style="-webkit-mask-image:url({{pr.mask}});mask-image:url({{pr.mask}})"></div></sc-if>
+                        </div>
+                        <div class="pface pback" style="background-image:url({{pr.back}})"><sc-if value="{{pr.uvB}}" hint-placeholder-val="{{ true }}"><div class="uv uvback" style="-webkit-mask-image:url({{pr.maskB}});mask-image:url({{pr.maskB}})"><i class="uvs" style="transform:translateX({{pr.shxB}}%)"></i></div></sc-if></div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{pr.isFlyer}}" hint-placeholder-val="{{ false }}">
+                      <div class="pobj pflyer">
+                        <div class="pface" style="background-image:url({{pr.front}})"></div>
+                        <div class="pface pback" style="background-image:url({{pr.back}})"></div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{pr.isVoucher}}" hint-placeholder-val="{{ false }}">
+                      <div class="pobj pvou">
+                        <div class="pface" style="background-image:url({{pr.front}})"></div>
+                        <div class="pface pback" style="background-image:url({{pr.back}})"></div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{pr.isSheet}}" hint-placeholder-val="{{ false }}">
+                      <div class="pobj psheet">
+                        <div class="pface" style="background-image:url({{pr.front}})"></div>
+                        <div class="pface pback plain paper"></div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{pr.isBanner}}" hint-placeholder-val="{{ false }}">
+                      <div class="pobj pban">
+                        <div class="ppole"></div>
+                        <div class="pface" style="background-image:url({{pr.front}})"></div>
+                        <div class="pface pback plain"></div>
+                        <div class="pbase"></div>
+                      </div>
+                    </sc-if>
+                  </div>
+                </div>
+              </div>
+              <div class="ctrls">
+                
+                <button class="chip" onClick="{{box.zin}}" aria-label="{{t.zoomIn}}">Zoom +</button>
+                <button class="chip" onClick="{{box.zout}}" aria-label="{{t.zoomOut}}">Zoom −</button>
+                <button class="chip" onClick="{{box.reset}}">{{t.reset}}</button>
+              </div>
+            </div>
+          </div>
+          <sc-if value="{{v.grafM}}" hint-placeholder-val="{{ false }}">
+            <div class="stag" style="display:flex;flex-direction:column;gap:16px;margin-top:18px">
+              <div class="v2list">
+                <sc-for list="{{grList}}" as="gq" hint-placeholder-count="4">
+                  <button class="{{gq.cls}}" onClick="{{gq.pick}}" aria-pressed="{{gq.cur}}"><span class="sthumb sq"><img src="{{gq.img}}" alt=""></span><span class="ptx"><b>{{gq.name}}</b><span>{{gq.tag}}</span></span></button>
+                </sc-for>
+              </div>
+              <div><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{cur.intro}}</p></div>
+              <div class="prfiles">
+              <p class="kick" style="margin:0">{{t.uvPub}}</p>
+              <div class="uvsw"><span class="swm gloss"></span><span>{{t.uvLegend}}</span></div>
+            </div>
+              <div class="case1">
+              <div><b>{{t.prSpec1}}</b>{{t.prSpec1t}}</div>
+              <div><b>{{t.prSpec2}}</b>{{t.prSpec2t}}</div>
+              <div><b>{{t.prSpec3}}</b>{{t.prSpec3t}}</div>
+            </div>
+            </div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{v.galD}}" hint-placeholder-val="{{ false }}">
+          <div class="vfscreen vbig">
+            <video data-auto="1" src="{{media.vsrc}}" poster="{{media.vposter}}" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" aria-label="{{cur.video}}"></video>
+            <div class="vfcap"><small>{{t.popVidTag}}</small><b>{{cur.title}}</b></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.persD}}" hint-placeholder-val="{{ false }}">
+          <div class="emb3d">
+            <div class="{{box.stageCls}} mugstage" onPointerDown="{{box.down}}" onPointerMove="{{box.move}}" onPointerUp="{{box.up}}" onPointerCancel="{{box.up}}"><div class="glbhost" data-glb="{{glbSrc}}"></div>
+              <div class="ped"></div>
+              <div class="hint">{{t.mugHint}}</div>
+              <div class="p3wrap" role="img" aria-label="{{t.mugAria}}">
+                <div class="{{box.cls}}" style="transform:rotateX({{box.rx}}deg) rotateY({{box.ry}}deg) scale({{box.zoom}})">
+                  <sc-if value="{{mug.isMug}}" hint-placeholder-val="{{ true }}">
+                  <sc-for list="{{mug.faces}}" as="mf" hint-placeholder-count="28">
+                    <div class="mf" style="transform:rotateY({{mf.a}}deg) translateZ(80px);background-image:url({{mug.print}});background-position:{{mf.bp}}px 0;filter:brightness({{mf.b}})"></div>
+                  </sc-for>
+                  <div class="mtop"></div>
+                  <div class="mbot"></div>
+                  <div class="mh" style="border-color:{{mug.hc}};transform:translate3d(78px,-56px,-7px)"></div>
+                  <div class="mh" style="border-color:{{mug.hc2}};transform:translate3d(78px,-56px,0px)"></div>
+                  <div class="mh" style="border-color:{{mug.hc}};transform:translate3d(78px,-56px,7px)"></div>
+                  </sc-if>
+                  <sc-if value="{{mug.isOther}}" hint-placeholder-val="{{ false }}">
+                    <sc-for list="{{mug.parts}}" as="cp" hint-placeholder-count="30"><div class="{{cp.cls}}" style="width:{{cp.w}}px;height:{{cp.h}}px;left:{{cp.l}}px;top:{{cp.t}}px;transform:{{cp.tf}};clip-path:{{cp.clip}};background:{{cp.bg}};filter:brightness({{cp.b}});border:{{cp.bd}};border-radius:{{cp.rad}}"></div></sc-for>
+                  </sc-if>
+                </div>
+              </div>
+            </div>
+            <div class="ctrls">
+              <button class="chip" onClick="{{box.zin}}" aria-label="{{t.zoomIn}}">Zoom +</button>
+              <button class="chip" onClick="{{box.zout}}" aria-label="{{t.zoomOut}}">Zoom −</button>
+              <button class="chip" onClick="{{box.reset}}">{{t.reset}}</button>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.generic}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:18px;position:relative">
+            <div style="position:relative"><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{cur.intro}}</p><sc-if value="{{v.baloes}}" hint-placeholder-val="{{ false }}"><img class="balloon-deco" src="/static/media/d9eca637f6b8533b2838b542bcf9e095.png" alt=""></sc-if></div>
+            <sc-if value="{{v.persM}}" hint-placeholder-val="{{ false }}">
+              <div class="mugm">
+            <div class="emb3d">
+            <div class="{{box.stageCls}} mugstage" onPointerDown="{{box.down}}" onPointerMove="{{box.move}}" onPointerUp="{{box.up}}" onPointerCancel="{{box.up}}"><div class="glbhost" data-glb="{{glbSrc}}"></div>
+              <div class="ped"></div>
+              <div class="hint">{{t.mugHint}}</div>
+              <div class="p3wrap" role="img" aria-label="{{t.mugAria}}">
+                <div class="{{box.cls}}" style="transform:rotateX({{box.rx}}deg) rotateY({{box.ry}}deg) scale({{box.zoom}})">
+                  <sc-if value="{{mug.isMug}}" hint-placeholder-val="{{ true }}">
+                  <sc-for list="{{mug.faces}}" as="mf" hint-placeholder-count="28">
+                    <div class="mf" style="transform:rotateY({{mf.a}}deg) translateZ(80px);background-image:url({{mug.print}});background-position:{{mf.bp}}px 0;filter:brightness({{mf.b}})"></div>
+                  </sc-for>
+                  <div class="mtop"></div>
+                  <div class="mbot"></div>
+                  <div class="mh" style="border-color:{{mug.hc}};transform:translate3d(78px,-56px,-7px)"></div>
+                  <div class="mh" style="border-color:{{mug.hc2}};transform:translate3d(78px,-56px,0px)"></div>
+                  <div class="mh" style="border-color:{{mug.hc}};transform:translate3d(78px,-56px,7px)"></div>
+                  </sc-if>
+                  <sc-if value="{{mug.isOther}}" hint-placeholder-val="{{ false }}">
+                    <sc-for list="{{mug.parts}}" as="cp" hint-placeholder-count="30"><div class="{{cp.cls}}" style="width:{{cp.w}}px;height:{{cp.h}}px;left:{{cp.l}}px;top:{{cp.t}}px;transform:{{cp.tf}};clip-path:{{cp.clip}};background:{{cp.bg}};filter:brightness({{cp.b}});border:{{cp.bd}};border-radius:{{cp.rad}}"></div></sc-for>
+                  </sc-if>
+                </div>
+              </div>
+            </div>
+            <div class="ctrls">
+              <button class="chip" onClick="{{box.zin}}" aria-label="{{t.zoomIn}}">Zoom +</button>
+              <button class="chip" onClick="{{box.zout}}" aria-label="{{t.zoomOut}}">Zoom −</button>
+              <button class="chip" onClick="{{box.reset}}">{{t.reset}}</button>
+            </div>
+          </div>
+              </div>
+            <h4 class="h4" style="margin:4px 0 -6px">{{t.popDone}}</h4>
+            <div class="mmgrid" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{persDone}}" as="dn" hint-placeholder-count="3">
+                <button class="{{dn.cls}}" onClick="{{dn.pick}}">
+                  <span class="mmstage"><span class="mmtilt" style="transform:rotateX(-12deg) scale({{dn.sc}})"><span class="mmspin" style="animation-delay:{{dn.dl}}s"><sc-for list="{{dn.parts}}" as="mp" hint-placeholder-count="12"><i class="{{mp.cls}}" style="width:{{mp.w}}px;height:{{mp.h}}px;left:{{mp.l}}px;top:{{mp.t}}px;transform:{{mp.tf}};clip-path:{{mp.clip}};background:{{mp.bg}};filter:brightness({{mp.b}});border:{{mp.bd}};border-radius:{{mp.rad}}"></i></sc-for></span></span></span>
+                  <b>{{dn.name}}</b><small>{{dn.type}}</small>
+                </button>
+              </sc-for>
+            </div>
+            </sc-if>
+            <sc-if value="{{v.genVid}}" hint-placeholder-val="{{ false }}">
+              <div class="gvid">
+                <div class="vfscreen gvcard">
+                  <video data-auto="1" src="{{media.vsrc}}" poster="{{media.vposter}}" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" aria-label="{{cur.video}}"></video>
+                  <div class="vfcap"><small>{{t.popVidTag}} 9:16</small><b>{{cur.video}}</b></div>
+                </div>
+              </div>
+            </sc-if>
+            <div class="stack-row">
+              <div class="browser" style="flex:2 1 440px;min-width:0">
+                <div class="bbar"><i></i><i></i><i></i><span class="url">victortrindade.com/{{cur.key}}</span></div>
+                <div class="mstage" style="aspect-ratio:{{media.ar}}">
+                  <sc-if value="{{media.isVideo}}" hint-placeholder-val="{{ false }}">
+                    <div class="mvbg"></div>
+                    <video class="mvideo" data-auto="1" src="{{media.vsrc}}" poster="{{media.vposter}}" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" controls="controls" aria-label="{{cur.video}}"></video>
+                  </sc-if>
+                  <sc-if value="{{media.isPhoto}}" hint-placeholder-val="{{ true }}">
+                    <img class="mimg" src="{{media.img}}" alt="{{media.label}}">
+                  </sc-if>
+                </div>
+                <div class="mstrip" role="group" aria-label="{{t.mediaAria}}">
+                  <sc-for list="{{media.items}}" as="mi" hint-placeholder-count="4">
+                    <button class="{{mi.cls}}" onClick="{{mi.pick}}" aria-pressed="{{mi.on}}">
+                      <sc-if value="{{mi.video}}" hint-placeholder-val="{{ false }}"><svg width="12" height="14" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1 L19 11 L2 21 Z" fill="#e8384f"></path></svg>{{mi.label}}</sc-if><sc-if value="{{mi.photo}}" hint-placeholder-val="{{ true }}"><img src="{{mi.img}}" alt="{{mi.label}}"></sc-if>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+              <div class="case1" style="flex:1 1 240px">
+                <div><b>{{t.cConceito}}</b>{{caseT.concept}}</div>
+                <div><b>{{t.cDesafio}}</b>{{caseT.challenge}}</div>
+                <div><b>{{t.cProcesso}}</b>{{caseT.process}}</div>
+                <div><b>{{t.cResultado}}</b>{{caseT.result}}</div>
+              </div>
+            </div>
+            <div class="cards">
+              <sc-for list="{{curProjects}}" as="p" hint-placeholder-count="3">
+                <div class="card"><img class="ci" src="{{p.img}}" alt=""><div class="cb"><b>{{p.name}}</b><span>{{p.tag}} · 2026</span></div></div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.sitesD}}" hint-placeholder-val="{{ false }}">
+          <div class="smain">
+            <div><div class="ttl"><h3 class="h3">{{site.name}}</h3><span class="demo">{{site.tag}}</span></div></div>
+            <div class="browser sbrow">
+              <div class="bbar"><i></i><i></i><i></i><span class="url">{{site.url}}</span><sc-if value="{{site.live}}" hint-placeholder-val="{{ false }}"><span class="livetag">● {{t.liveTag}}</span><a class="liveopen" href="{{site.liveUrl}}" target="_blank" rel="noopener noreferrer">{{t.liveOpen}}</a></sc-if></div>
+              <sc-if value="{{site.showImg}}" hint-placeholder-val="{{ true }}"><div class="sscroll"><img src="{{site.desk}}" alt="{{t.shotDesk}}"></div></sc-if><sc-if value="{{site.showVid}}" hint-placeholder-val="{{ false }}"><div class="sscroll"><video data-auto="1" src="{{site.vid}}" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" style="display:block;width:100%"></video></div></sc-if>
+              <sc-if value="{{site.live}}" hint-placeholder-val="{{ false }}"><div class="sscroll livebox"><iframe class="liveD" src="{{site.liveUrl}}" title="{{site.name}}" loading="lazy"></iframe></div></sc-if>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.sites}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:18px">
+            <div><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{t.sitesIntro}}</p></div>
+            <sc-for list="{{curProjects}}" as="p" hint-placeholder-count="2">
+              <div class="corkp">
+                <span class="blk br" style="font-size:26px;transform:rotate(-2deg)">{{p.name}}</span>
+                <div class="browser" style="margin:16px auto 0;max-width:760px;transform:rotate(.6deg)">
+                  <div class="bbar"><i></i><i></i><i></i><span class="url">{{p.url}}</span></div>
+                  <sc-if value="{{p.notLive}}" hint-placeholder-val="{{ true }}"><img src="{{p.desk}}" alt="{{t.shotDesk}}" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top"></sc-if>
+                  <sc-if value="{{p.live}}" hint-placeholder-val="{{ false }}"><div class="livebox mlive"><iframe class="liveM" src="{{p.liveUrl}}" title="{{p.name}}" loading="lazy"></iframe></div></sc-if>
+                </div>
+                <div class="fan">
+                  <div class="fcard f1"><img src="{{p.mob}}" alt="{{t.shotMob}}" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border-radius:8px"><b>Mobile</b><span>{{t.mobSub}}</span></div>
+                  <div class="fcard f3"><div class="ph" style="aspect-ratio:4/3;border-radius:8px;font-size:13px">{{t.techs}}</div><b>Stack</b><span>{{t.feats}}</span></div>
+                  <div class="fcard f2" style="z-index:2"><img src="{{p.desk}}" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:right top;border-radius:8px"><b>{{p.tag}}</b><span><a href="#" rel="noopener noreferrer" target="_blank">{{t.visit}}</a></span></div>
+                </div>
+                <p class="annot sm" style="text-align:center;margin-top:10px">{{t.fanHint}}</p>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.videosD}}" hint-placeholder-val="{{ false }}">
+          <div class="vfscreen vbig">
+            <video id="vplayer" src="{{vid.src}}" poster="{{vid.poster}}" playsInline="playsinline" loop="loop" preload="metadata" onPlay="{{vOnPlay}}" onPause="{{vOnPause}}"></video>
+            <div class="{{vid.midCls}}"><button class="play" style="width:72px;height:72px" aria-label="{{t.playAria}}" onClick="{{vToggle}}"><svg width="24" height="26" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1 L19 11 L2 21 Z" fill="#fff"></path></svg></button></div>
+            <div class="vfcap"><small>{{vid.tag}}</small><b>{{vid.name}}</b></div>
+            <button class="vnav vprev" aria-label="{{t.prevAria}}" onClick="{{vidPrev}}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button class="vnav vnext" aria-label="{{t.nextAria}}" onClick="{{vidNext}}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2 L10 7 L5 12" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.videos}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:16px">
+            <div><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div></div>
+            <div class="corkp" style="padding:16px 10px 12px">
+              <div class="{{vflowCls}}" onPointerDown="{{vfDown}}" onPointerMove="{{vfMove}}" onPointerUp="{{vfUp}}" onPointerCancel="{{vfUp}}" role="list" aria-label="{{t.nVideos}}">
+                <sc-for list="{{vflow}}" as="vf" hint-placeholder-count="3">
+                  <div role="listitem" class="{{vf.cls}}" style="transform:translateX({{vf.tx}}%) rotateY({{vf.ry}}deg) scale({{vf.sc}});z-index:{{vf.z}};opacity:{{vf.op}}" onClick="{{vf.pick}}">
+                    <div class="vfscreen">
+                      <sc-if value="{{vf.isCur}}" hint-placeholder-val="{{ false }}">
+                        <video id="vplayer" src="{{vf.src}}" poster="{{vf.poster}}" playsInline="playsinline" loop="loop" preload="metadata" onPlay="{{vOnPlay}}" onPause="{{vOnPause}}"></video>
+                        <div class="{{vid.midCls}}"><button class="play" style="width:66px;height:66px" aria-label="{{t.playAria}}" onClick="{{vToggle}}"><svg width="22" height="24" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1 L19 11 L2 21 Z" fill="#fff"></path></svg></button></div>
+                      </sc-if>
+                      <sc-if value="{{vf.notCur}}" hint-placeholder-val="{{ true }}"><img src="{{vf.poster}}" alt=""></sc-if>
+                      <div class="vfcap"><small>{{vf.tag}}</small><b>{{vf.name}}</b></div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.projetos}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:18px">
+            <div><div class="ttl"><h3 class="h3">{{t.allProj}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{t.allProjIntro}}</p></div>
+            <div class="corkp">
+              <div class="deckwrap">
+                <div class="deck" role="group" aria-label="{{t.vitTitle}}">
+                  <sc-for list="{{deck}}" as="dk" hint-placeholder-count="5">
+                    <div class="{{dk.cls}}" style="transform:translate({{dk.tx}}px,{{dk.ty}}px) rotate({{dk.r}}deg);z-index:{{dk.z}}"><span class="{{dk.pin}}"></span><img src="{{dk.img}}" alt=""><b>{{dk.name}}</b></div>
+                  </sc-for>
+                </div>
+                <div class="deckinfo">
+                  <span class="demo">{{deckCur.cat}}</span>
+                  <span class="blk wh">{{deckCur.name}}</span>
+                  <p>{{t.deckDesc}}</p>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
+                    <button class="chip pink" onClick="{{deckNext}}">{{t.deckNext}}</button>
+                    <button class="chip" onClick="{{deckOpen}}">{{t.deckOpen}}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cards">
+              <sc-for list="{{allProjects}}" as="p" hint-placeholder-count="6">
+                <button class="card" style="padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit" onClick="{{p.open}}"><img class="ci" src="{{p.img}}" alt=""><div class="cb"><b>{{p.name}}</b><span>{{p.cat}} · {{p.tag}}</span></div></button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.skillsD}}" hint-placeholder-val="{{ false }}">
+          <div class="stag skd" style="display:flex;flex-direction:column;gap:12px">
+            <div><div class="ttl"><h3 class="h3">{{t.skTitle}}</h3><span class="demo">{{t.skTag}}</span></div><p class="kick">{{t.skIntro}}</p></div>
+            <div class="sheet">
+              <h4 class="h4">{{t.tools}}</h4>
+              <div class="toolgrid">
+                <sc-for list="{{tools}}" as="tl" hint-placeholder-count="7">
+                  <div class="tool"><span class="tico" style="background:{{tl.color}}">{{tl.ab}}</span><div><strong class="tnm">{{tl.name}}</strong><em class="tlv">{{tl.lvl}}</em></div></div>
+                </sc-for>
+              </div>
+            </div>
+            <div class="smarq" aria-hidden="true"><div class="mtrack" style="animation-duration:24s"><span>{{t.skMarq}}</span><span>{{t.skMarq}}</span></div></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.skills}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:18px">
+            <div><div class="ttl"><h3 class="h3">{{t.skTitle}}</h3><span class="demo">{{t.skTag}}</span></div><p class="kick">{{t.skIntro}}</p></div>
+            <div class="sheet">
+              <h4 class="h4">{{t.tools}}</h4>
+              <div class="toolgrid">
+                <sc-for list="{{tools}}" as="tl" hint-placeholder-count="7">
+                  <div class="tool"><span class="tico" style="background:{{tl.color}}">{{tl.ab}}</span><div><strong class="tnm">{{tl.name}}</strong><em class="tlv">{{tl.lvl}}</em></div></div>
+                </sc-for>
+              </div>
+            </div>
+            <div class="smarq" aria-hidden="true"><div class="mtrack" style="animation-duration:24s"><span>{{t.skMarq}}</span><span>{{t.skMarq}}</span></div></div>
+            <div class="sheet">
+              <h4 class="h4">{{t.comps}}</h4>
+              <div class="stars5">
+                <sc-for list="{{starRows}}" as="sr" hint-placeholder-count="6">
+                  <div class="srow">
+                    <span class="sname">{{sr.name}}</span>
+                    <span class="sst" role="img" aria-label="{{sr.aria}}"><sc-for list="{{sr.stars}}" as="st" hint-placeholder-count="5"><span class="sv"><svg class="s0" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10 L61 38 L91 40 L68 59 L76 88 L50 72 L24 88 L32 59 L9 40 L39 38 Z"></path></svg><svg class="s1" viewBox="0 0 100 100" aria-hidden="true" style="transform:scale({{st.sc}}) rotate({{st.rot}}deg);opacity:{{st.op}}"><path d="M50 10 L61 38 L91 40 L68 59 L76 88 L50 72 L24 88 L32 59 L9 40 L39 38 Z"></path></svg></span></sc-for></span>
+                    <span class="slvl">{{sr.lvl}}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <p class="rnote">{{t.radarNote}}</p>
+              <div class="skw">
+                <sc-for list="{{skills}}" as="sk" hint-placeholder-count="8">
+                  <span class="chip"><svg width="14" height="14" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L62 36 L96 38 L69 59 L79 93 L50 73 L21 93 L31 59 L4 38 L38 36 Z" fill="currentColor"></path></svg>{{sk}}</span>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.sobre}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:20px">
+            <div class="stack-row" style="align-items:flex-start">
+              <div class="portrait">
+                <span class="tape"></span>
+                <img class="me" src="{{aboutPhoto}}" alt="{{t.portraitAlt}}">
+                <span class="cap">{{t.portraitCap}}</span>
+                <img class="stk2" src="/static/media/401efebfc8d783fa0498185dd8025735.png" alt="{{t.stickerSobreAlt}}">
+              </div>
+              <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+                <h3 class="h3">{{t.hi}}</h3>
+                <p class="kick">{{t.bio}}</p>
+                <div class="case">
+                  <div><b>{{t.cValores}}</b>{{t.valores}}</div>
+                  <div><b>{{t.cProcesso}}</b>{{t.processo}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="smarq" aria-hidden="true"><div class="mtrack" style="animation-duration:20s"><span>{{t.favMarq}}</span><span>{{t.favMarq}}</span></div></div>
+            <sc-for list="{{favs}}" as="fv" hint-placeholder-count="3">
+              <div>
+                <div class="favh"><h4 class="h4">{{fv.title}}</h4><span class="demo">{{t.coversDemo}}</span></div>
+                <div class="hscroll" role="list" aria-label="{{fv.title}}" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+                  <sc-for list="{{fv.items}}" as="it" hint-placeholder-count="5">
+                    <div role="listitem" class="cover" style="aspect-ratio:{{fv.ar}};background:{{it.bg}};transform:rotate({{it.rot}}deg)"><img src="{{it.img}}" alt="{{it.name}}"><span class="{{it.pin}}"></span></div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.playlist}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:16px">
+            <div class="cdp2">
+              <div class="cdhead">
+                <div class="cdhl">
+                  <sc-if value="{{pl.showTag}}" hint-placeholder-val="{{ true }}"><span class="demo">{{t.plTag}}</span></sc-if>
+                  <div class="cdtitle" style="white-space:pre-line">{{t.plBig}}</div>
+                  <div class="cdgenre">{{t.plGenre}}</div>
+                </div>
+                <div class="cdbox" aria-hidden="true">
+                  <img class="{{pl.spinCls}}" src="/static/media/f85c0d8738f0cffd75a31045f04ab191.png" alt="">
+                  <img class="sleeve" src="{{pl.cover}}" alt="">
+                </div>
+              </div>
+              <sc-if value="{{pl.embed}}" hint-placeholder-val="{{ false }}"><iframe class="spembed" title="Spotify" src="{{pl.embedSrc}}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></sc-if><sc-if value="{{pl.noEmbed}}" hint-placeholder-val="{{ true }}"><sc-if value="{{pl.spTrack}}" hint-placeholder-val="{{ false }}"><div class="cdbar2 spbar"><iframe class="sptrack" title="Spotify" src="{{pl.spTrackSrc}}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div></sc-if><sc-if value="{{pl.noSpTrack}}" hint-placeholder-val="{{ true }}"><div class="cdbar2"><span>{{pl.time}}</span><div class="tr"><i style="width:{{pl.pct}}%"></i><b style="left:{{pl.pct}}%"></b></div><span style="color:#9a8f82">{{pl.durTxt}}</span></div></sc-if>
+              <div class="cdlist">
+              <div class="cdpop" hidden>{{t.plPop}} <span class="spbadge"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1db954"></circle><path d="M6 9.5 C10 8 14.5 8.3 18 10 M6.8 12.6 C10 11.5 13.6 11.8 16.6 13.2 M7.5 15.5 C10 14.7 12.8 14.9 15.2 16" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path></svg>{{t.plFrom}}</span></div>
+              <div role="list" aria-label="{{t.tracksAria}}" style="display:flex;flex-direction:column;gap:2px">
+                <sc-for list="{{tracks}}" as="tr" hint-placeholder-count="3">
+                  <button class="{{tr.cls}}" onClick="{{tr.pick}}" aria-current="{{tr.cur}}"><span class="n">{{tr.n}}</span><img src="{{tr.cover}}" alt=""><span class="tt">{{tr.name}}<small>{{tr.artist}}</small></span><span class="d">{{tr.dur}}</span></button>
+                </sc-for>
+              </div>
+              </div>
+              <div class="{{pl.ctrlCls}}">
+                <button class="cbtn" aria-label="{{t.prev}}" onClick="{{plPrev}}"><svg width="16" height="14" viewBox="0 0 14 12" aria-hidden="true"><path d="M7 1 L1 6 L7 11 Z M13 1 L7 6 L13 11 Z" fill="currentColor"></path></svg></button>
+                <button class="cbtn big" aria-label="{{pl.playLabel}}" onClick="{{plPlay}}"><sc-if value="{{pl.playing}}" hint-placeholder-val="{{ false }}"><svg width="16" height="18" viewBox="0 0 14 16" aria-hidden="true"><path d="M2 1 H5 V15 H2 Z M9 1 H12 V15 H9 Z" fill="currentColor"></path></svg></sc-if><sc-if value="{{pl.paused}}" hint-placeholder-val="{{ true }}"><svg width="16" height="18" viewBox="0 0 20 22" aria-hidden="true"><path d="M3 1 L19 11 L3 21 Z" fill="currentColor"></path></svg></sc-if></button>
+                <button class="cbtn" aria-label="{{t.next}}" onClick="{{plNext}}"><svg width="16" height="14" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 1 L7 6 L1 11 Z M7 1 L13 6 L7 11 Z" fill="currentColor"></path></svg></button>
+                <a class="spbtn" onClick="{{spClick}}" href="{{pl.spUrl}}" rel="noopener noreferrer" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path d="M6 9.5 C10 8 14.5 8.3 18 10 M6.8 12.6 C10 11.5 13.6 11.8 16.6 13.2 M7.5 15.5 C10 14.7 12.8 14.9 15.2 16" fill="none" stroke="#1db954" stroke-width="1.8" stroke-linecap="round"></path></svg>{{t.plLink}}</a>
+              </div></sc-if>
+              <audio id="aud" src="{{pl.src}}" preload="metadata" onTimeUpdate="{{plTime}}" onLoadedMetadata="{{plTime}}" onEnded="{{plNext}}" onPlay="{{plOnPlay}}" onPause="{{plOnPause}}"></audio>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.metricas}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:18px">
+            <div><div class="ttl"><h3 class="h3">{{t.metTitle}}</h3><span class="demo">{{t.metTag}}</span></div><p class="kick">{{t.metIntro}}</p></div>
+            <div class="metgrid">
+              <sc-for list="{{mets}}" as="mt" hint-placeholder-count="6">
+                <div class="{{mt.cls}}">
+                  <span class="mlab">{{mt.label}}</span>
+                  <b class="mnum">{{mt.txt}}</b>
+                  <span class="msub">{{mt.sub}}</span>
+                  <span class="mbar"><i style="width:{{mt.pct}}%;background:{{mt.c}}"></i></span>
+                </div>
+              </sc-for>
+            </div>
+            <button class="chip pink" style="align-self:flex-start" onClick="{{metReplay}}"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10 A6 6 0 1 1 13.5 5.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path><path d="M12 2 L15 5.5 L11 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{t.metReplay}}</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{v.contato}}" hint-placeholder-val="{{ false }}">
+          <div class="stag" style="display:flex;flex-direction:column;gap:6px">
+            <div class="cmarq" aria-hidden="true"><div class="mtrack" style="animation-duration:18s"><span>{{t.cMarq}}</span><span>{{t.cMarq}}</span></div></div>
+            <div class="cwrap">
+              <div class="cleft">
+                <h3 class="h3">{{t.talk}}</h3>
+                <span class="demo" style="margin-bottom:6px">{{t.cReply}}</span>
+                <a class="ctag" href="{{links.email}}" style="transform:rotate(-2deg);animation-delay:.1s"><i><svg width="16" height="14" viewBox="0 0 16 12" aria-hidden="true"><rect x="1" y="1" width="14" height="10" rx="1.5" fill="none" stroke="#1d1a17" stroke-width="1.8"></rect><path d="M1.5 1.5 L8 7 L14.5 1.5" fill="none" stroke="#1d1a17" stroke-width="1.8"></path></svg></i><span>E-mail<small>{{t.lEmail}}</small></span></a>
+                <a class="ctag" href="{{links.whatsapp}}" target="_blank" style="transform:rotate(1.5deg);animation-delay:.2s"><i><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3 H14 V11 H6 L3 14 V11 H2 Z" fill="none" stroke="#1d1a17" stroke-width="1.8" stroke-linejoin="round"></path></svg></i><span>WhatsApp<small>{{t.lWpp}}</small></span></a>
+                <a class="ctag" href="{{links.instagram}}" target="_blank" rel="noopener noreferrer" style="transform:rotate(-1deg);animation-delay:.3s"><i><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="4" fill="none" stroke="#1d1a17" stroke-width="1.8"></rect><circle cx="8" cy="8" r="2.8" fill="none" stroke="#1d1a17" stroke-width="1.8"></circle></svg></i><span>Instagram<small>{{igLabel}}</small></span></a>
+                <a class="ctag" href="{{links.linkedin}}" target="_blank" rel="noopener noreferrer" style="transform:rotate(2deg);animation-delay:.4s"><i><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="5" width="12" height="9" rx="1.5" fill="none" stroke="#1d1a17" stroke-width="1.8"></rect><path d="M6 5 V3 H10 V5" fill="none" stroke="#1d1a17" stroke-width="1.8"></path></svg></i><span>LinkedIn<small>{{t.lIn}}</small></span></a>
+              </div>
+              <sc-if value="{{form.showForm}}" hint-placeholder-val="{{ true }}">
+                <form class="{{form.cls}}" onSubmit="{{submit}}" noValidate="novalidate">
+                  <span class="tape"></span>
+                  <div class="lf"><label for="c-nome">{{t.fName}}</label><input id="c-nome" name="nome" autocomplete="name" placeholder="{{t.phName}}"></div>
+                  <div class="lf"><label for="c-email">E-mail</label><input id="c-email" name="email" type="email" autocomplete="email" placeholder="{{t.phEmail}}"></div>
+                  <div class="lf"><label for="c-assunto">{{t.fSubj}}</label><input id="c-assunto" name="assunto" placeholder="{{t.phSubj}}"></div>
+                  <div class="lf"><label for="c-msg">{{t.fMsg}}</label><textarea id="c-msg" name="mensagem" rows="3" placeholder="{{t.phMsg}}"></textarea></div>
+                  <div class="hp" aria-hidden="true"><label for="c-site">{{t.fHp}}</label><input id="c-site" name="site" tabindex="-1" autocomplete="off"></div>
+                  <div role="status" style="font:600 14px Archivo,sans-serif;color:{{form.color}};padding-left:30px">{{form.msg}}</div>
+                  <button class="stamp" type="submit">{{t.fSend}} <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10 L18 2 L12 18 L9 11 Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"></path></svg></button>
+                </form>
+              </sc-if>
+              <sc-if value="{{form.done}}" hint-placeholder-val="{{ false }}">
+                <div class="postcard" role="status">
+                  <span class="blk br" style="font-size:26px">{{t.pcTitle}}</span>
+                  <p>{{t.fOk}}</p>
+                  <button class="chip" onClick="{{formReset}}">{{t.pcAgain}}</button>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{pop.pltr}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.plPop}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="#fff" stroke-width="2"></circle><circle cx="11" cy="11" r="2.5" fill="#fff"></circle></svg>
+          <h2>{{t.plPop}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main" style="padding-top:12px">
+          <div role="list" aria-label="{{t.tracksAria}}" style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{tracks}}" as="tr" hint-placeholder-count="8">
+              <button class="{{tr.cls}}" onClick="{{tr.pick}}" aria-current="{{tr.cur}}"><span class="n">{{tr.n}}</span><img src="{{tr.cover}}" alt=""><span class="tt">{{tr.name}}<small>{{tr.artist}}</small></span><span class="d">{{tr.dur}}</span></button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.grtxt}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popAbout}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="4" rx="1.5" fill="#fff"></rect><rect x="2" y="9" width="18" height="4" rx="1.5" fill="#fff" opacity=".8"></rect><rect x="2" y="15" width="18" height="4" rx="1.5" fill="#fff" opacity=".6"></rect></svg>
+          <h2>{{t.popAbout}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="stag" style="display:flex;flex-direction:column;gap:14px">
+            <div><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{cur.intro}}</p></div>
+            <h4 class="h4" style="margin:6px 0 0">{{t.otherProj}}</h4>
+            <div class="v2list">
+              <sc-for list="{{grList}}" as="gq" hint-placeholder-count="4">
+                <button class="{{gq.cls}}" onClick="{{gq.pick}}" aria-pressed="{{gq.cur}}"><span class="sthumb sq"><img src="{{gq.img}}" alt=""></span><span class="ptx"><b>{{gq.name}}</b><span>{{gq.tag}}</span></span></button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.grup}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popFiles}}" style="left:{{s2.l}};top:{{s2.t}};width:{{s2.w}};height:{{s2.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr3}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 14 V3 M5 8 L10 3 L15 8 M3 16 H17" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <h2>{{t.popDone}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide2}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="chips etabs" style="padding-top:12px"><sc-for list="{{grTabs}}" as="et" hint-placeholder-count="2"><button class="{{et.cls}}" onClick="{{et.pick}}">{{et.label}}</button></sc-for></div>
+          <sc-if value="{{grTabDone}}" hint-placeholder-val="{{ true }}">
+            <div class="mmgrid" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{grDone}}" as="dn" hint-placeholder-count="4">
+                <button class="{{dn.cls}}" onClick="{{dn.pick}}">
+                  <span class="mmstage"><span class="mmtilt"><span class="mmspin" style="animation-delay:{{dn.dl}}s"><sc-for list="{{dn.parts}}" as="mp" hint-placeholder-count="12"><i class="{{mp.cls}}" style="width:{{mp.w}}px;height:{{mp.h}}px;left:{{mp.l}}px;top:{{mp.t}}px;transform:{{mp.tf}};clip-path:{{mp.clip}};background:{{mp.bg}};filter:brightness({{mp.b}});border:{{mp.bd}};border-radius:{{mp.rad}}"></i></sc-for></span></span></span>
+                  <b>{{dn.name}}</b><small>{{dn.type}}</small>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{grTabFin}}" hint-placeholder-val="{{ false }}">
+          <div style="padding-top:4px;display:flex;flex-direction:column;gap:14px">
+            <div class="case1">
+              <div><b>{{t.prSpec1}}</b>{{t.prSpec1t}}</div>
+              <div><b>{{t.prSpec2}}</b>{{t.prSpec2t}}</div>
+              <div><b>{{t.prSpec3}}</b>{{t.prSpec3t}}</div>
+            </div>
+            <div class="prfiles">
+              <p class="kick" style="margin:0">{{t.uvPub}}</p>
+              <div class="uvsw"><span class="swm gloss"></span><span>{{t.uvLegend}}</span></div>
+            </div>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.gtxt}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popAbout}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="4" rx="1.5" fill="#fff"></rect><rect x="2" y="9" width="18" height="4" rx="1.5" fill="#fff" opacity=".8"></rect><rect x="2" y="15" width="18" height="4" rx="1.5" fill="#fff" opacity=".6"></rect></svg>
+          <h2>{{t.popAbout}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="stag" style="display:flex;flex-direction:column;gap:14px">
+            <div><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{cur.intro}}</p></div>
+            <div class="case1">
+              <div><b>{{t.cConceito}}</b>{{caseT.concept}}</div>
+              <div><b>{{t.cDesafio}}</b>{{caseT.challenge}}</div>
+              <div><b>{{t.cProcesso}}</b>{{caseT.process}}</div>
+              <div><b>{{t.cResultado}}</b>{{caseT.result}}</div>
+            </div>
+            <h4 class="h4" style="margin:6px 0 0">{{t.otherProj}}</h4>
+            <div class="v2list">
+              <sc-for list="{{curProjects}}" as="p" hint-placeholder-count="3">
+                <div class="pitem"><span class="sthumb sq"><img src="{{p.img}}" alt=""></span><span class="ptx"><b>{{p.name}}</b><span>{{p.tag}} · 2026</span></span></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.gimg}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popImgs}}" style="left:{{s2.l}};top:{{s2.t}};width:{{s2.w}};height:{{s2.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr3}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="16" rx="3" fill="none" stroke="#fff" stroke-width="2"></rect><circle cx="8" cy="9" r="2" fill="#fff"></circle><path d="M3 17 L9 12 L13 15 L16 12 L20 16" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"></path></svg>
+          <h2>{{t.popImgs}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide2}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main gmain">
+          <div class="gview" style="aspect-ratio:{{gal.ar}}">
+            <img src="{{gal.img}}" alt="{{gal.label}}">
+            <button class="vnav vprev" aria-label="{{t.prevAria}}" onClick="{{gal.prev}}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2 L4 7 L9 12" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button class="vnav vnext" aria-label="{{t.nextAria}}" onClick="{{gal.next}}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2 L10 7 L5 12" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <span class="gcount">{{gal.n}}</span><span class="gfmt">{{gal.fmt}}</span>
+          </div>
+          <p class="gcap">{{gal.label}}</p>
+          <div class="gthumbs">
+            <sc-for list="{{gal.items}}" as="gt" hint-placeholder-count="3">
+              <button class="{{gt.cls}}" aria-pressed="{{gt.on}}" aria-label="{{gt.label}}" onClick="{{gt.pick}}"><img src="{{gt.img}}" alt=""></button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.ptxt}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popAbout}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="4" rx="1.5" fill="#fff"></rect><rect x="2" y="9" width="18" height="4" rx="1.5" fill="#fff" opacity=".8"></rect><rect x="2" y="15" width="18" height="4" rx="1.5" fill="#fff" opacity=".6"></rect></svg>
+          <h2>{{t.popAbout}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="stag" style="display:flex;flex-direction:column;gap:16px">
+            <div><div class="ttl"><h3 class="h3">{{cur.title}}</h3><span class="demo">{{t.demo}}</span></div><p class="kick">{{cur.intro}}</p></div>
+            <div class="case1">
+              <div><b>{{t.cConceito}}</b>{{caseT.concept}}</div>
+              <div><b>{{t.cDesafio}}</b>{{caseT.challenge}}</div>
+              <div><b>{{t.cProcesso}}</b>{{caseT.process}}</div>
+              <div><b>{{t.cResultado}}</b>{{caseT.result}}</div>
+            </div>
+            <div class="cards">
+              <sc-for list="{{curProjects}}" as="p" hint-placeholder-count="3">
+                <div class="card"><img class="ci" src="{{p.img}}" alt=""><div class="cb"><b>{{p.name}}</b><span>{{p.tag}} · 2026</span></div></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.pvid}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popVid}}" style="left:{{s2.l}};top:{{s2.t}};width:{{s2.w}};height:{{s2.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr3}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="16" rx="3" fill="none" stroke="#fff" stroke-width="2"></rect><path d="M9 7.5 L15 11 L9 14.5 Z" fill="#fff"></path></svg>
+          <h2>{{t.popDone}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide2}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main donemain">
+          <div class="chips etabs"><sc-for list="{{persTabs}}" as="et" hint-placeholder-count="2"><button class="{{et.cls}}" onClick="{{et.pick}}">{{et.label}}</button></sc-for></div>
+          <sc-if value="{{persTabDone}}" hint-placeholder-val="{{ true }}">
+            <div class="mmgrid" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{persDone}}" as="dn" hint-placeholder-count="3">
+                <button class="{{dn.cls}}" onClick="{{dn.pick}}">
+                  <span class="mmstage"><span class="mmtilt" style="transform:rotateX(-12deg) scale({{dn.sc}})"><span class="mmspin" style="animation-delay:{{dn.dl}}s"><sc-for list="{{dn.parts}}" as="mp" hint-placeholder-count="12"><i class="{{mp.cls}}" style="width:{{mp.w}}px;height:{{mp.h}}px;left:{{mp.l}}px;top:{{mp.t}}px;transform:{{mp.tf}};clip-path:{{mp.clip}};background:{{mp.bg}};filter:brightness({{mp.b}});border:{{mp.bd}};border-radius:{{mp.rad}}"></i></sc-for></span></span></span>
+                  <b>{{dn.name}}</b><small>{{dn.type}}</small>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{persTabVid}}" hint-placeholder-val="{{ false }}">
+            <div class="vfscreen vbig" style="height:auto;flex:1;min-height:0">
+              <video data-auto="1" src="{{media.vsrc}}" poster="{{media.vposter}}" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" aria-label="{{cur.video}}"></video>
+              <div class="vfcap"><small>{{t.popVidTag}}</small><b>{{cur.video}}</b></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.skcomp}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2 autoh" role="region" aria-label="{{t.comps}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2 L19.5 8.2 L16.3 18.2 H5.7 L2.5 8.2 Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"></path><path d="M11 6 L15 10 L13 15 H8.5 L7 9.5 Z" fill="#fff" opacity=".8"></path></svg>
+          <h2>{{t.comps}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="stag" style="display:flex;flex-direction:column;gap:14px;padding-top:16px">
+            <h4 class="h4" style="margin:0">{{t.radarTitle}}</h4>
+              <div class="stars5">
+                <sc-for list="{{starRows}}" as="sr" hint-placeholder-count="6">
+                  <div class="srow">
+                    <span class="sname">{{sr.name}}</span>
+                    <span class="sst" role="img" aria-label="{{sr.aria}}"><sc-for list="{{sr.stars}}" as="st" hint-placeholder-count="5"><span class="sv"><svg class="s0" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10 L61 38 L91 40 L68 59 L76 88 L50 72 L24 88 L32 59 L9 40 L39 38 Z"></path></svg><svg class="s1" viewBox="0 0 100 100" aria-hidden="true" style="transform:scale({{st.sc}}) rotate({{st.rot}}deg);opacity:{{st.op}}"><path d="M50 10 L61 38 L91 40 L68 59 L76 88 L50 72 L24 88 L32 59 L9 40 L39 38 Z"></path></svg></span></sc-for></span>
+                    <span class="slvl">{{sr.lvl}}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <p class="rnote">{{t.radarNote}}</p>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.skmore}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2 autoh" role="region" aria-label="{{t.skMore}}" style="left:{{s2.l}};top:{{s2.t}};width:{{s2.w}};height:{{s2.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr3}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="7" cy="8" r="4" fill="#fff"></circle><circle cx="15" cy="7" r="3" fill="#fff" opacity=".8"></circle><circle cx="12" cy="15" r="5" fill="#fff" opacity=".9"></circle></svg>
+          <h2>{{t.skMore}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide2}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main bubmain">
+          <div class="bubs">
+            <sc-for list="{{bubbles}}" as="bb" hint-placeholder-count="10">
+              <span class="skb" style="background:{{bb.bg}};color:{{bb.fg}};animation-delay:{{bb.d1}}s,{{bb.d2}}s;animation-duration:.6s,{{bb.dur}}s;rotate:{{bb.r}}deg">{{bb.t}}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.vlist}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.moreVids}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="4" rx="1.5" fill="#fff"></rect><rect x="2" y="9" width="18" height="4" rx="1.5" fill="#fff" opacity=".8"></rect><rect x="2" y="15" width="18" height="4" rx="1.5" fill="#fff" opacity=".6"></rect></svg>
+          <h2>{{t.moreVids}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="v2list">
+            <sc-for list="{{videoList}}" as="it" hint-placeholder-count="4">
+              <button class="{{it.cls}}" onClick="{{it.pick}}" aria-pressed="{{it.cur}}"><span class="pthumb"><img src="{{it.poster}}" alt=""></span><span class="ptx"><b>{{it.name}}</b><span>{{it.tag}}</span></span></button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.etxt}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popAbout}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="4" rx="1.5" fill="#fff"></rect><rect x="2" y="9" width="18" height="4" rx="1.5" fill="#fff" opacity=".8"></rect><rect x="2" y="15" width="18" height="4" rx="1.5" fill="#fff" opacity=".6"></rect></svg>
+          <h2>{{t.popAbout}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="stag" style="display:flex;flex-direction:column;gap:16px">
+            <div><div class="ttl"><h3 class="h3">{{emb.name}}</h3><span class="demo">{{t.demo1}}</span></div><p class="kick">{{t.embIntro}}</p></div>
+            <div class="thumbs" role="group" aria-label="{{t.embProjAria}}" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{embProjects}}" as="p" hint-placeholder-count="3">
+                <button class="{{p.cls}}" onClick="{{p.pick}}"><img class="tico2" src="{{p.ico}}" alt="" draggable="false"><span>{{p.short}}</span></button>
+              </sc-for>
+            </div>
+            <div class="chips" role="tablist" aria-label="{{t.tabsAria}}" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="5">
+                <button role="tab" aria-selected="{{tb.on}}" class="{{tb.cls}}" onClick="{{tb.pick}}">{{tb.label}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{tab.sobre}}" hint-placeholder-val="{{ true }}">
+              <div class="case">
+                <div><b>{{t.cConceito}}</b>{{t.eConceito}}</div>
+                <div><b>{{t.cDesafio}}</b>{{t.eDesafio}}</div>
+                <div><b>{{t.cProcesso}}</b>{{t.eProcesso}}</div>
+                <div><b>{{t.cResultado}}</b>{{t.eResultado}}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.processo}}" hint-placeholder-val="{{ false }}">
+              <div class="chips" style="align-items:center;font:600 14px Archivo,sans-serif">
+                <sc-for list="{{t.steps}}" as="sp" hint-placeholder-count="5"><span class="chip">{{sp}}</span></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.faca}}" hint-placeholder-val="{{ false }}">
+              <div class="sheet" style="max-width:560px;position:relative">
+                <svg viewBox="0 0 400 300" role="img" aria-label="{{t.dieAria}}" style="width:100%;display:block">
+                  <rect x="120" y="100" width="120" height="90" fill="#fde3ee" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="40" y="100" width="80" height="90" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="240" y="100" width="80" height="90" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="120" y="20" width="120" height="80" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <rect x="120" y="190" width="120" height="80" fill="#fff" stroke="#1d1a17" stroke-width="2"></rect>
+                  <path d="M120 100 H240 M120 190 H240 M120 100 V190 M240 100 V190" stroke="#e9558b" stroke-width="2" stroke-dasharray="6 5"></path>
+                  <path d="M320 110 L345 118 L345 172 L320 180 M40 110 L15 118 L15 172 L40 180" fill="none" stroke="#1d1a17" stroke-width="2"></path>
+                </svg>
+                <span style="position:absolute;left:0;right:0;top:calc(18px + 46%);text-align:center;font:600 12px Archivo,sans-serif">{{t.dieFront}}</span>
+                <span style="position:absolute;left:0;right:0;top:calc(18px + 18%);text-align:center;font:600 12px Archivo,sans-serif">{{t.dieLid}}</span>
+                <span style="position:absolute;left:0;right:0;bottom:14px;text-align:center;font:600 11px Archivo,sans-serif;color:#8a1a45">{{t.dieNote}}</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.fotos}}" hint-placeholder-val="{{ false }}">
+              <div class="cards">
+                <div class="card"><img class="ci" src="/static/media/f26c9883730ec9b14edd7ce926b862ad.jpg" alt="{{t.ph1}}"><div class="cb">{{t.ph1}}</div></div>
+                <div class="card"><img class="ci" src="/static/media/5294fb1a858206da3b4d6886042ddb06.jpg" alt="{{t.ph2}}"><div class="cb">{{t.ph2}}</div></div>
+                <div class="card"><img class="ci" src="/static/media/c042e28079118ef6a4ac241526e1d323.jpg" alt="{{t.ph3}}"><div class="cb">{{t.ph3}}</div></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{tab.apps}}" hint-placeholder-val="{{ false }}">
+              <div class="case">
+                <div><b>{{t.cMateriais}}</b>{{t.eMateriais}}</div>
+                <div><b>{{t.cAplicacoes}}</b>{{t.eAplicacoes}}</div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.evid}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popDone}}" style="left:{{s2.l}};top:{{s2.t}};width:{{s2.w}};height:{{s2.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr3}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 8 L11 4 L18 8 L18 16 L11 20 L4 16 Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"></path><path d="M4 8 L11 12 L18 8 M11 12 V20" fill="none" stroke="#fff" stroke-width="2"></path></svg>
+          <h2>{{t.popDone}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide2}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main donemain">
+          <div class="chips etabs"><sc-for list="{{embTabs}}" as="et" hint-placeholder-count="2"><button class="{{et.cls}}" onClick="{{et.pick}}">{{et.label}}</button></sc-for></div>
+          <sc-if value="{{embTabDone}}" hint-placeholder-val="{{ true }}">
+            <div class="mmgrid" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{embDone}}" as="dn" hint-placeholder-count="4">
+                <button class="{{dn.cls}}" onClick="{{dn.pick}}">
+                  <span class="mmstage"><span class="mmtilt"><span class="mmspin" style="animation-delay:{{dn.dl}}s"><sc-for list="{{dn.parts}}" as="mp" hint-placeholder-count="20"><i class="{{mp.cls}}" style="width:{{mp.w}}px;height:{{mp.h}}px;left:{{mp.l}}px;top:{{mp.t}}px;transform:{{mp.tf}};clip-path:{{mp.clip}};background:{{mp.bg}};filter:brightness({{mp.b}});border:{{mp.bd}};border-radius:{{mp.rad}}"></i></sc-for></span></span></span>
+                  <b>{{dn.name}}</b><small>{{dn.type}}</small>
+                </button>
+              </sc-for>
+            </div>
+            <sc-if value="{{embDoneEmpty}}" hint-placeholder-val="{{ false }}"><p class="rnote">{{t.doneEmpty}}</p></sc-if>
+          </sc-if>
+          <sc-if value="{{embTabVid}}" hint-placeholder-val="{{ false }}">
+            <div class="vfscreen vbig" style="height:auto;flex:1;min-height:0">
+              <video data-auto="1" src="/static/media/9e64decfc69e9f881ab32a5193569e1e.mp4" poster="/static/media/be476ffe9ba611812fb6bbf7f9fed1cc.jpg" muted="muted" loop="loop" playsInline="playsinline" autoPlay="autoplay" aria-label="{{t.embVideo}}"></video>
+              <div class="vfcap"><small>{{t.popVidTag}}</small><b>{{t.embVideo}}</b></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.sinfo}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popSites}}" style="left:{{s1.l}};top:{{s1.t}};width:{{s1.w}};height:{{s1.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr2}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="2" y="3" width="18" height="4" rx="1.5" fill="#fff"></rect><rect x="2" y="9" width="18" height="4" rx="1.5" fill="#fff" opacity=".8"></rect><rect x="2" y="15" width="18" height="4" rx="1.5" fill="#fff" opacity=".6"></rect></svg>
+          <h2>{{t.popSites}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide1}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main">
+          <div class="fcar" role="group" aria-label="{{t.filtersAria}}">
+            <div class="chips" onPointerDown="{{hsDown}}" onPointerMove="{{hsMove}}" onPointerUp="{{hsUp}}" onPointerCancel="{{hsUp}}">
+              <sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+                <button class="{{f.cls}}" onClick="{{f.pick}}" aria-pressed="{{f.on}}">{{f.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="v2list">
+            <sc-for list="{{siteList}}" as="it" hint-placeholder-count="3">
+              <button class="{{it.cls}}" onClick="{{it.pick}}" aria-pressed="{{it.cur}}"><span class="sthumb"><img src="{{it.desk}}" alt=""></span><span class="ptx"><b>{{it.name}}</b><span>{{it.tag}}</span></span></button>
+            </sc-for>
+          </div>
+          <div class="sinfo">
+            <p class="kick" style="margin:0">{{t.sitesIntro}}</p>
+            <div class="case1">
+              <div><b>Stack</b>{{t.techs}}</div>
+              <div><b>{{t.popFeats}}</b>{{t.feats}}</div>
+            </div>
+            <a class="chip pink" href="#" rel="noopener noreferrer" target="_blank" style="align-self:flex-start">{{t.visit}}</a>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{pop.sphone}}" hint-placeholder-val="{{ false }}">
+      <div class="win win2" role="region" aria-label="{{t.popMob}}" style="left:{{s2.l}};top:{{s2.t}};width:{{s2.w}};height:{{s2.h}};transform:{{w.tf2}};opacity:{{w.op2}};transition:{{w.tr3}}">
+        <div class="tbar">
+          <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><rect x="6" y="1.5" width="10" height="19" rx="2.5" fill="none" stroke="#fff" stroke-width="2"></rect><circle cx="11" cy="17" r="1.2" fill="#fff"></circle></svg>
+          <h2>{{t.popMob}}</h2>
+          <button class="tbtn sm" aria-label="{{t.close}}" onClick="{{hide2}}"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></button>
+        </div>
+        <div class="main phmain">
+          <div class="phone"><span class="notch"></span><div class="phscr"><sc-if value="{{site.notLive}}" hint-placeholder-val="{{ true }}"><img src="{{site.mob}}" alt="{{t.shotMob}}"></sc-if><sc-if value="{{site.live}}" hint-placeholder-val="{{ false }}"><div class="livebox phl"><iframe class="liveM" src="{{site.liveUrl}}" title="{{site.name}} mobile" loading="lazy"></iframe></div></sc-if></div></div>
+          <p class="phcap">Mobile · {{t.mobSub}}</p>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
+  <div class="bar">
+    <div class="{{pixCls}}"><img src="{{pixSrc}}" alt="{{t.pixAlt}}"></div>
+    <span class="dots" aria-hidden="true">•••</span>
+    <div class="say" aria-hidden="true">{{typed}}<sc-if value="{{typing}}" hint-placeholder-val="{{ false }}"><span class="caret"></span></sc-if></div>
+    <div class="sr" aria-live="polite">{{msg}}</div>
+  </div>
+
+  <button class="{{stickerCls}}" onClick="{{stickerClick}}" onMouseEnter="{{stickerHover}}" aria-label="{{t.stickerAria}}" tabindex="{{stickerTab}}">
+    <span class="stk">
+      <sc-for list="{{stk}}" as="k" hint-placeholder-count="1">
+        <img class="{{k.cls}}" src="{{k.src}}" alt="" style="opacity:{{k.op}}">
+      </sc-for>
+      <span class="{{fxCls}}" aria-hidden="true">
+        <svg class="i-bulb" viewBox="0 0 60 80"><path d="M30 6 C14 6 6 18 6 30 C6 40 12 46 17 52 L17 60 L43 60 L43 52 C48 46 54 40 54 30 C54 18 46 6 30 6 Z" fill="#ffe14d" stroke="#2a1d14" stroke-width="4" stroke-linejoin="round"></path><path d="M20 66 H40 M22 73 H38" stroke="#2a1d14" stroke-width="5" stroke-linecap="round"></path><path d="M20 26 C22 18 28 15 33 15" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"></path></svg>
+        <svg class="i-rays" viewBox="0 0 100 40"><path d="M10 34 L2 22 M30 20 L26 4 M50 16 V0 M70 20 L74 4 M90 34 L98 22" stroke="#2a1d14" stroke-width="5" stroke-linecap="round"></path></svg>
+        <svg class="i-hearts" viewBox="0 0 100 60"><path d="M20 50 C4 38 2 26 10 20 C16 15 22 19 20 24 C18 19 24 15 30 20 C38 26 34 38 20 50 Z" fill="#e9558b" stroke="#2a1d14" stroke-width="3.5" stroke-linejoin="round"></path><path d="M74 40 C62 31 61 22 67 18 C71 15 76 17 75 22 C74 17 79 15 83 18 C89 22 87 31 74 40 Z" fill="#ff7aa8" stroke="#2a1d14" stroke-width="3.5" stroke-linejoin="round"></path></svg>
+        <svg class="i-question" viewBox="0 0 60 80"><path d="M14 24 C14 12 22 6 31 6 C42 6 49 13 49 22 C49 34 33 35 33 48" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"></path><path d="M14 24 C14 12 22 6 31 6 C42 6 49 13 49 22 C49 34 33 35 33 48" fill="none" stroke="#2f62cf" stroke-width="8" stroke-linecap="round"></path><circle cx="33" cy="66" r="7" fill="#2f62cf" stroke="#fff" stroke-width="3"></circle></svg>
+        <svg class="i-vein" viewBox="0 0 60 60"><g stroke="#e0262e" stroke-width="7" stroke-linecap="round" fill="none"><path d="M24 6 C24 18 18 24 6 24"></path><path d="M36 6 C36 18 42 24 54 24"></path><path d="M24 54 C24 42 18 36 6 36"></path><path d="M36 54 C36 42 42 36 54 36"></path></g></svg>
+        <svg class="i-sweat" viewBox="0 0 40 60"><path d="M20 4 C26 18 34 28 34 38 C34 48 28 54 20 54 C12 54 6 48 6 38 C6 28 14 18 20 4 Z" fill="#8fd3ff" stroke="#2a1d14" stroke-width="3.5" stroke-linejoin="round"></path><path d="M13 38 C13 44 16 47 19 47" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"></path></svg>
+        <svg class="i-sparkle" viewBox="0 0 100 60"><path d="M18 6 L22 22 L38 26 L22 30 L18 46 L14 30 L-2 26 L14 22 Z" fill="#ffe14d" stroke="#2a1d14" stroke-width="3" stroke-linejoin="round"></path><path d="M80 18 L83 29 L94 32 L83 35 L80 46 L77 35 L66 32 L77 29 Z" fill="#fff" stroke="#2a1d14" stroke-width="3" stroke-linejoin="round"></path><circle cx="56" cy="8" r="4" fill="#e9558b"></circle></svg>
+        <svg class="i-notes" viewBox="0 0 100 80"><g fill="#1d1a17"><ellipse cx="17" cy="64" rx="12" ry="8.5" transform="rotate(-22 17 64)"></ellipse><ellipse cx="57" cy="56" rx="12" ry="8.5" transform="rotate(-22 57 56)"></ellipse><rect x="24.5" y="16" width="5" height="47" rx="2"></rect><rect x="64.5" y="8" width="5" height="47" rx="2"></rect><path d="M24.5 16 L69.5 8 L69.5 20 L24.5 28 Z"></path></g><g fill="#e9558b"><ellipse cx="86" cy="34" rx="8" ry="6" transform="rotate(-22 86 34)"></ellipse><rect x="90.5" y="4" width="3.5" height="30" rx="1.5"></rect><path d="M94 4 C100 10 101 16 97 22 C98 16 96 12 94 11 Z"></path></g></svg>
+        <svg class="i-shock" viewBox="0 0 100 50"><g stroke="#2a1d14" stroke-width="5" stroke-linecap="round"><path d="M12 44 L4 30"></path><path d="M26 30 L22 12"></path><path d="M74 30 L78 12"></path><path d="M88 44 L96 30"></path></g><text x="50" y="42" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="40" fill="#e0262e" stroke="#fff" stroke-width="3" paint-order="stroke">!</text></svg>
+      </span>
+    </span>
+  </button>
+</div>
+
+</template>
+<noscript>
+  <main style="max-width:760px;margin:40px auto;padding:24px;background:#fbf8f1;font-family:Archivo,sans-serif">
+    <h1>Victor Trindade — publicidade, design &amp; mais</h1>
+    <p>Portfólio criativo: campanhas, embalagens, personalizados, papelaria, sites e vídeos.</p>
+    
+      <h2>Publicidade &amp; Design</h2>
+      <ul></ul>
+    
+      <h2>Embalagens &amp; Packaging</h2>
+      <ul></ul>
+    
+      <h2>Personalizados</h2>
+      <ul></ul>
+    
+      <h2>Bubble Balloons</h2>
+      <ul></ul>
+    
+      <h2>Handmade &amp; Papelaria</h2>
+      <ul></ul>
+    
+      <h2>Sites &amp; Digital</h2>
+      <ul></ul>
+    
+      <h2>Vídeos &amp; Motion</h2>
+      <ul></ul>
+    
+      <h2>Papelaria Gráfica</h2>
+      <ul></ul>
+    
+      <h2>Criação de Produtos</h2>
+      <ul></ul>
+    
+    <p>Ative o JavaScript para explorar a bancada interativa.</p>
+  </main>
+</noscript>
+<script type="application/json" id="site-data">{"projects":{},"links":{"whatsapp":"5511971906718","whatsapp_label":"(11) 97190-6718"},"pl_cover":"/uploads/2026/10/23c51bf64be0d5b8c0933574.jpg","pl_title":"This is me","lines":{"hello":[{"pt":"Opa, chegou! Ignora a bagunça, é criativa.","en":"Hey, welcome! Ignore the mess. It’s creative.","mood":"feliz","pose":"sorriso"},{"pt":"Bem-vindo ao episódio piloto do meu portfólio.","en":"Welcome to the pilot episode of my portfolio.","mood":"piscando","pose":"pisca"},{"pt":"Eu ia me apresentar. Acabei fazendo um site inteiro.","en":"I meant to introduce myself. Built a whole site instead.","mood":"pensando","pose":"pensa"},{"pt":"Pode entrar! Não precisa assistir às temporadas anteriores.","en":"Come on in! No need to watch previous seasons.","mood":"animado","pose":"fala"},{"pt":"Esse é meu cantinho na internet. Tem easter eggs.","en":"My little corner of the internet. Easter eggs included.","mood":"neutro","pose":"joinha"}],"home":[{"pt":"De volta ao início. Um clássico dos videogames.","en":"Back to the start. A gaming classic.","mood":"feliz","pose":"sorriso"},{"pt":"Voltamos pro lobby. Café não incluso.","en":"Back to the lobby. Coffee not included.","mood":"piscando","pose":"pisca"},{"pt":"Home sweet home. Até no navegador.","en":"Home sweet home. Even in a browser.","mood":"pensando","pose":"pensa"},{"pt":"O episódio em que a gente volta pra casa.","en":"The one where we go back home.","mood":"animado","pose":"fala"},{"pt":"Recomeçar também faz parte do roteiro.","en":"Starting over is part of the story.","mood":"neutro","pose":"joinha"}],"done":[{"pt":"Pronto! Essa parte teve um final feliz.","en":"Done! This part got a happy ending.","mood":"feliz","pose":"sorriso"},{"pt":"Missão concluída. Sem cena pós-créditos.","en":"Mission complete. No post-credits scene.","mood":"piscando","pose":"pisca"},{"pt":"Fechamos esse capítulo. Próximo episódio?","en":"That’s a wrap. Next episode?","mood":"pensando","pose":"pensa"},{"pt":"Tudo certo. Até parece que ensaiamos.","en":"All set. Almost like we rehearsed.","mood":"animado","pose":"fala"},{"pt":"Concluído! Meu mini eu aprova.","en":"Finished! Mini-me approves.","mood":"neutro","pose":"joinha"}],"idle":[{"pt":"Sem pressa. Eu também gosto de observar os detalhes.","en":"No rush. I like looking at the details too.","mood":"feliz","pose":"sorriso"},{"pt":"Tá admirando o cenário? Justo.","en":"Admiring the set? Fair enough.","mood":"piscando","pose":"pisca"},{"pt":"Esse silêncio tá muito The Office.","en":"This silence is very The Office.","mood":"pensando","pose":"pensa"},{"pt":"Pode explorar. Não tem prova no final.","en":"Feel free to explore. No final exam.","mood":"animado","pose":"fala"},{"pt":"A pausa dramática faz parte do roteiro.","en":"The dramatic pause is part of the script.","mood":"neutro","pose":"joinha"}],"lang":[{"pt":"Mudou o idioma? Internacionalizamos o episódio.","en":"New language? International episode unlocked.","mood":"feliz","pose":"sorriso"},{"pt":"Agora com legendas. Quer dizer, quase.","en":"Now with subtitles. Well, sort of.","mood":"piscando","pose":"pisca"},{"pt":"Troca de idioma desbloqueada.","en":"Language switch unlocked.","mood":"pensando","pose":"pensa"},{"pt":"Same Victor, different subtitles.","en":"Same Victor, different subtitles.","mood":"animado","pose":"fala"},{"pt":"Um pequeno crossover linguístico.","en":"A tiny linguistic crossover.","mood":"neutro","pose":"joinha"}],"sticker":[{"pt":"É um mini eu. Minha versão de bolso.","en":"It’s mini-me. Pocket edition.","mood":"feliz","pose":"sorriso"},{"pt":"Basicamente meu Funko Pop, só que fala.","en":"Basically my own Funko Pop, but it talks.","mood":"piscando","pose":"pisca"},{"pt":"Eu queria um assistente. Contratei a mim mesmo.","en":"I wanted an assistant. Hired myself.","mood":"pensando","pose":"pensa"},{"pt":"Fiz uma versão pequena de mim. Normal, né?","en":"Made a tiny version of myself. Totally normal.","mood":"animado","pose":"fala"},{"pt":"Esse mini eu tem menos reuniões que eu.","en":"Mini-me has fewer meetings than I do.","mood":"neutro","pose":"joinha"}],"sobre":[{"pt":"O episódio em que você conhece o Victor.","en":"The one where you meet Victor.","mood":"feliz","pose":"sorriso"},{"pt":"Tentar me definir em uma profissão só nunca funcionou.","en":"One job title was never going to cover it.","mood":"piscando","pose":"pisca"},{"pt":"Minha história de origem. Sem multiverso.","en":"My origin story. No multiverse required.","mood":"pensando","pose":"pensa"},{"pt":"Faço várias coisas. Chandler entenderia a explicação.","en":"I do a bit of everything. Chandler would get it.","mood":"animado","pose":"fala"},{"pt":"Prometo ser mais breve que o Michael Scott.","en":"I’ll be quicker than Michael Scott. Promise.","mood":"neutro","pose":"joinha"}],"projetos":[{"pt":"The One Where I Show You My Projects.","en":"The One Where I Show You My Projects.","mood":"feliz","pose":"sorriso"},{"pt":"Algumas ideias começaram pequenas. Outras nem tanto.","en":"Some ideas started small. Others, not so much.","mood":"piscando","pose":"pisca"},{"pt":"Cada projeto tem uma história. Alguns têm plot twist.","en":"Every project has a story. Some have plot twists.","mood":"pensando","pose":"pensa"},{"pt":"Meu universo criativo, sem ordem obrigatória.","en":"My creative universe. No watch order required.","mood":"animado","pose":"fala"},{"pt":"É quase um catálogo de temporadas criativas.","en":"Think of it as a catalog of creative seasons.","mood":"neutro","pose":"joinha"}],"skills":[{"pt":"Fui aprendendo uma coisa aqui, outra ali. Deu nisso.","en":"Learned a little here, a little there. Here we are.","mood":"feliz","pose":"sorriso"},{"pt":"Minha árvore de habilidades ficou diversificada.","en":"My skill tree got pretty diverse.","mood":"piscando","pose":"pisca"},{"pt":"Tenho skills. Telecinese ainda não é uma delas.","en":"I have skills. Telekinesis isn’t one yet.","mood":"pensando","pose":"pensa"},{"pt":"Alguns atalhos ajudam. Nenhum é magia.","en":"A few shortcuts help. None are magic.","mood":"animado","pose":"fala"},{"pt":"O modo multitarefa veio de fábrica.","en":"Multitasking came preinstalled.","mood":"neutro","pose":"joinha"}],"videos":[{"pt":"Luz, câmera... já editei. Pode assistir.","en":"Lights, camera… already edited. Enjoy.","mood":"feliz","pose":"sorriso"},{"pt":"Aqui as ideias ganham movimento.","en":"Here, ideas start moving.","mood":"piscando","pose":"pisca"},{"pt":"Uma boa edição sabe a hora de sair de cena.","en":"Good editing knows when to leave the scene.","mood":"pensando","pose":"pensa"},{"pt":"Tem vídeo que merece replay.","en":"Some videos deserve a replay.","mood":"animado","pose":"fala"},{"pt":"O timing faz a diferença. Até na piada.","en":"Timing matters. Even with jokes.","mood":"neutro","pose":"joinha"}],"playlist":[{"pt":"Toda boa ideia merece uma trilha sonora.","en":"Every good idea deserves a soundtrack.","mood":"feliz","pose":"sorriso"},{"pt":"Meu Spotify parece uma sitcom com várias temporadas.","en":"My Spotify is a sitcom with many seasons.","mood":"piscando","pose":"pisca"},{"pt":"A trilha muda, a vontade de criar continua.","en":"The soundtrack changes. The ideas keep coming.","mood":"pensando","pose":"pensa"},{"pt":"Se tocar Friends, você já sabe o clima.","en":"If Friends starts playing, you know the vibe.","mood":"animado","pose":"fala"},{"pt":"O DJ aqui é você. Sem pressão.","en":"You’re the DJ here. No pressure.","mood":"neutro","pose":"joinha"}],"metricas":[{"pt":"Aqui a criatividade encontra a matemática. Plot twist!","en":"Creativity meets math. Plot twist!","mood":"feliz","pose":"sorriso"},{"pt":"Gosto de ideias bonitas que também funcionam.","en":"I like pretty ideas that actually work.","mood":"piscando","pose":"pisca"},{"pt":"Os números entram em cena. Sem sustos.","en":"The numbers enter the scene. No jump scares.","mood":"pensando","pose":"pensa"},{"pt":"Design e resultado podem ser bons colegas.","en":"Design and results make a good team.","mood":"animado","pose":"fala"},{"pt":"Até as melhores ideias precisam de contexto.","en":"Even great ideas need context.","mood":"neutro","pose":"joinha"}],"contato":[{"pt":"Tem uma ideia? Adoro quando começa assim.","en":"Got an idea? Love when it starts like that.","mood":"feliz","pose":"sorriso"},{"pt":"Toda boa parceria começa com uma conversa.","en":"Every great collaboration starts with a chat.","mood":"piscando","pose":"pisca"},{"pt":"Quem sabe nosso próximo crossover começa aqui?","en":"Maybe our next crossover starts here?","mood":"pensando","pose":"pensa"},{"pt":"Pode chamar. Prometo não responder com um meme só.","en":"Say hi. I promise not to reply with just a meme.","mood":"animado","pose":"fala"},{"pt":"Vamos transformar esse e se em projeto?","en":"Let’s turn that what-if into a project.","mood":"neutro","pose":"joinha"}],"publicidade":[{"pt":"Uma boa ideia chama atenção. Uma ótima fica.","en":"A good idea gets noticed. A great one sticks.","mood":"feliz","pose":"sorriso"},{"pt":"Criatividade e estratégia: minha dupla dinâmica.","en":"Creativity and strategy: my dynamic duo.","mood":"piscando","pose":"pisca"},{"pt":"O briefing é o roteiro. A ideia muda o episódio.","en":"The brief is the script. The idea changes the plot.","mood":"pensando","pose":"pensa"},{"pt":"Uma boa campanha merece mais de cinco segundos.","en":"A good campaign deserves more than five seconds.","mood":"animado","pose":"fala"},{"pt":"O objetivo é sair do feed e ficar na memória.","en":"The goal: leave the feed and stay in your mind.","mood":"neutro","pose":"joinha"}],"grafica":[{"pt":"CMYK: um elenco de quatro protagonistas.","en":"CMYK: four leading characters.","mood":"feliz","pose":"sorriso"},{"pt":"Sim, eu reparo na gramatura do papel.","en":"Yes, I notice paper weight.","mood":"piscando","pose":"pisca"},{"pt":"Alguns detalhes não cabem numa tela.","en":"Some details just don’t fit on a screen.","mood":"pensando","pose":"pensa"},{"pt":"Um bom acabamento merece close-up.","en":"A great finish deserves a close-up.","mood":"animado","pose":"fala"},{"pt":"Escolher papel também é direção de arte.","en":"Choosing paper is art direction too.","mood":"neutro","pose":"joinha"}],"embalagens":[{"pt":"Amo vídeo de unboxing. Óbvio que faria um aqui.","en":"I love unboxing videos. Of course I made this.","mood":"feliz","pose":"sorriso"},{"pt":"Se fosse um Reels, eu assistia até o fim.","en":"If this were a Reel, I’d watch to the end.","mood":"piscando","pose":"pisca"},{"pt":"Essa caixa só precisava de um ASMR.","en":"This box just needs some ASMR.","mood":"pensando","pose":"pensa"},{"pt":"Pode olhar atrás também. Eu pensei nessa parte.","en":"Check the back too. I designed that part.","mood":"animado","pose":"fala"},{"pt":"A experiência começa antes de ver o produto.","en":"The experience starts before you see the product.","mood":"neutro","pose":"joinha"}],"personalizados":[{"pt":"Aqui os objetos ganham suas próprias skins.","en":"Here, everyday objects get custom skins.","mood":"feliz","pose":"sorriso"},{"pt":"Character customization, só que fora da tela.","en":"Character customization, but offline.","mood":"piscando","pose":"pisca"},{"pt":"Até uma caneca pode ter personalidade.","en":"Even a mug can have personality.","mood":"pensando","pose":"pensa"},{"pt":"A graça é fazer o comum virar único.","en":"The fun is making ordinary things unique.","mood":"animado","pose":"fala"},{"pt":"Se dá pra personalizar, eu já quero testar.","en":"If it can be customized, I want to try it.","mood":"neutro","pose":"joinha"}],"produtos":[{"pt":"Do e se ao existe de verdade.","en":"From what-if to actually real.","mood":"feliz","pose":"sorriso"},{"pt":"O protótipo é quase o episódio piloto.","en":"A prototype is basically the pilot episode.","mood":"piscando","pose":"pisca"},{"pt":"Algumas ideias merecem sair da tela.","en":"Some ideas deserve to leave the screen.","mood":"pensando","pose":"pensa"},{"pt":"O conceito virou objeto. Eu adoro essa parte.","en":"The concept became an object. Love this part.","mood":"animado","pose":"fala"},{"pt":"Design que dá pra pegar na mão? Sim, por favor.","en":"Design you can hold? Yes, please.","mood":"neutro","pose":"joinha"}],"baloes":[{"pt":"Aqui a criatividade ganha outra dimensão.","en":"Here, creativity gets another dimension.","mood":"feliz","pose":"sorriso"},{"pt":"Uma composição boa tem seu efeito especial.","en":"A great arrangement has its own special effect.","mood":"piscando","pose":"pisca"},{"pt":"Um toque de Up, sem sair voando.","en":"A little Up energy, minus the flying away.","mood":"pensando","pose":"pensa"},{"pt":"Cor, forma e um pouco de magia visual.","en":"Color, shape, and a little visual magic.","mood":"animado","pose":"fala"},{"pt":"Até o ar entrou no projeto.","en":"Even air got a role in this project.","mood":"neutro","pose":"joinha"}],"handmade":[{"pt":"Aqui o Ctrl+Z exige mais paciência.","en":"Undo takes a little more patience here.","mood":"feliz","pose":"sorriso"},{"pt":"Crafting na vida real. Sem botão de desfazer.","en":"Real-life crafting. No undo button.","mood":"piscando","pose":"pisca"},{"pt":"Feito à mão, com direito a bastidores.","en":"Handmade, behind-the-scenes included.","mood":"pensando","pose":"pensa"},{"pt":"O Pinterest inspirou. As mãos resolveram.","en":"Pinterest inspired it. My hands handled it.","mood":"animado","pose":"fala"},{"pt":"Nem toda ferramenta precisa de atualização.","en":"Not every tool needs an update.","mood":"neutro","pose":"joinha"}],"sites":[{"pt":"Era só um portfólio. Aí inventei um quarto.","en":"It was just a portfolio. Then I built a room.","mood":"feliz","pose":"sorriso"},{"pt":"Meu lado designer e meu lado dev negociam.","en":"My designer and developer sides negotiate.","mood":"piscando","pose":"pisca"},{"pt":"Sim, eu reparo nos detalhes. Às vezes demais.","en":"Yes, I notice details. Maybe too many.","mood":"pensando","pose":"pensa"},{"pt":"Uma boa interface não precisa explicar a piada.","en":"A good interface doesn’t explain the joke.","mood":"animado","pose":"fala"},{"pt":"Se explorar ficou fácil, a UX fez seu trabalho.","en":"If exploring feels easy, UX did its job.","mood":"neutro","pose":"joinha"}],"videos_cat":[{"pt":"Se você não percebeu o corte, talvez acertei.","en":"If you missed the cut, maybe I nailed it.","mood":"feliz","pose":"sorriso"},{"pt":"Às vezes volto a cena só pra ver a edição.","en":"Sometimes I rewind just to study the edit.","mood":"piscando","pose":"pisca"},{"pt":"Uma boa edição é questão de timing.","en":"Good editing is all about timing.","mood":"pensando","pose":"pensa"},{"pt":"O making of também merece atenção.","en":"The making-of deserves attention too.","mood":"animado","pose":"fala"},{"pt":"Cada frame tem seu momento de protagonista.","en":"Every frame gets its moment to shine.","mood":"neutro","pose":"joinha"}],"filtro":[{"pt":"Nova seleção. Seu algoritmo tá interessante.","en":"New selection. Your algorithm has taste.","mood":"feliz","pose":"sorriso"},{"pt":"Mudou o filtro? Novo episódio, mesmo universo.","en":"New filter? New episode, same universe.","mood":"piscando","pose":"pisca"},{"pt":"Curadoria ativada. Gostei do critério.","en":"Curation mode on. Nice choice.","mood":"pensando","pose":"pensa"},{"pt":"Organizando o elenco dos projetos.","en":"Organizing the cast of projects.","mood":"animado","pose":"fala"},{"pt":"Agora ficou mais fácil achar seu favorito.","en":"Finding your favorite just got easier.","mood":"neutro","pose":"joinha"}],"trocar_modelo":[{"pt":"Novo visual. Quase episódio de makeover.","en":"New look. Almost a makeover episode.","mood":"feliz","pose":"sorriso"},{"pt":"Outra versão desbloqueada.","en":"Another version unlocked.","mood":"piscando","pose":"pisca"},{"pt":"Troca de figurino, mesma ideia.","en":"Wardrobe change, same concept.","mood":"pensando","pose":"pensa"},{"pt":"Qual combina mais? Eu fico dividido.","en":"Which one fits best? I can’t decide.","mood":"animado","pose":"fala"},{"pt":"Mudou o modelo. A direção de arte continua.","en":"New model. Art direction stays.","mood":"neutro","pose":"joinha"}],"modelo_ja_fiz":[{"pt":"Esse eu já fiz! Temos um clássico.","en":"Made this one already! A classic.","mood":"feliz","pose":"sorriso"},{"pt":"Reprise boa também merece atenção.","en":"A good rerun deserves attention too.","mood":"piscando","pose":"pisca"},{"pt":"Já passamos por esse episódio.","en":"We’ve seen this episode before.","mood":"pensando","pose":"pensa"},{"pt":"Esse modelo tem história pra contar.","en":"This model has a story.","mood":"animado","pose":"fala"},{"pt":"Reconheceu? Ele já apareceu por aqui.","en":"Recognize it? It’s been here before.","mood":"neutro","pose":"joinha"}],"girar_3d":[{"pt":"É tipo a tela de escolher personagem.","en":"Like a character selection screen.","mood":"feliz","pose":"sorriso"},{"pt":"Pode olhar atrás. Modelei essa parte também.","en":"Check the back. I modeled that too.","mood":"piscando","pose":"pisca"},{"pt":"Gira à vontade. Sem truque de câmera.","en":"Spin away. No camera tricks.","mood":"pensando","pose":"pensa"},{"pt":"Uma volta completa, cortesia do 3D.","en":"A full 360, courtesy of 3D.","mood":"animado","pose":"fala"},{"pt":"Sim, eu pensei no outro lado.","en":"Yep, I designed the other side too.","mood":"neutro","pose":"joinha"}],"zoom":[{"pt":"Pode aproximar. Os detalhes importam.","en":"Come closer. Details matter.","mood":"feliz","pose":"sorriso"},{"pt":"Modo CSI ativado. Pode investigar.","en":"CSI mode activated. Investigate away.","mood":"piscando","pose":"pisca"},{"pt":"Tá quase vendo os pixels pensando.","en":"You can almost see the pixels thinking.","mood":"pensando","pose":"pensa"},{"pt":"Eu também daria zoom nessa parte.","en":"I’d zoom in on this too.","mood":"animado","pose":"fala"},{"pt":"Passei tempo demais nesses detalhes. Aproveita.","en":"Spent way too long on these details. Enjoy.","mood":"neutro","pose":"joinha"}],"tampa_abrir":[{"pt":"Amo unboxing. Agora tenho um interativo.","en":"I love unboxings. Now I have an interactive one.","mood":"feliz","pose":"sorriso"},{"pt":"Pode abrir. Essa é a parte satisfatória.","en":"Open it. This is the satisfying part.","mood":"piscando","pose":"pisca"},{"pt":"Só faltou o som de ASMR da embalagem.","en":"All that’s missing is packaging ASMR.","mood":"pensando","pose":"pensa"},{"pt":"Se fosse um vídeo, eu veria até o final.","en":"If this were a video, I’d watch it all.","mood":"animado","pose":"fala"},{"pt":"A experiência começa no primeiro abrir.","en":"The experience starts with the first opening.","mood":"neutro","pose":"joinha"}],"tampa_fechar":[{"pt":"Fechou? Agora dá vontade de abrir de novo.","en":"Closed it? Now you want to open it again.","mood":"feliz","pose":"sorriso"},{"pt":"Fim do unboxing. Ou será que não?","en":"Unboxing over. Or is it?","mood":"piscando","pose":"pisca"},{"pt":"Essa caixa merece um replay.","en":"This box deserves a replay.","mood":"pensando","pose":"pensa"},{"pt":"Pronto. Satisfatório até pra fechar.","en":"Done. Even closing it feels satisfying.","mood":"animado","pose":"fala"},{"pt":"Corta! Temos mais um take do unboxing.","en":"Cut! Another take of the unboxing.","mood":"neutro","pose":"joinha"}],"verniz":[{"pt":"Um brilho sutil faz toda a diferença.","en":"A subtle shine changes everything.","mood":"feliz","pose":"sorriso"},{"pt":"Esse detalhe merece a luz certa.","en":"This detail deserves the right lighting.","mood":"piscando","pose":"pisca"},{"pt":"O verniz entrou e roubou a cena.","en":"The finish just stole the scene.","mood":"pensando","pose":"pensa"},{"pt":"Efeito especial? Não, acabamento.","en":"Special effect? Nope, print finish.","mood":"animado","pose":"fala"},{"pt":"A diferença mora nos detalhes.","en":"The difference is in the details.","mood":"neutro","pose":"joinha"}],"video_play":[{"pt":"Luz, câmera... play!","en":"Lights, camera… play!","mood":"feliz","pose":"sorriso"},{"pt":"Agora deixa a edição contar o resto.","en":"Let the edit tell the rest.","mood":"piscando","pose":"pisca"},{"pt":"Aperta o play. Prometo não narrar tudo.","en":"Hit play. I promise not to narrate it all.","mood":"pensando","pose":"pensa"},{"pt":"Esse episódio tem movimento.","en":"This episode has motion.","mood":"animado","pose":"fala"},{"pt":"Boa sessão! Sem spoilers da minha parte.","en":"Enjoy! No spoilers from me.","mood":"neutro","pose":"joinha"}],"video_next":[{"pt":"Próximo episódio. Sem esperar uma semana.","en":"Next episode. No week-long wait.","mood":"feliz","pose":"sorriso"},{"pt":"Nova cena, nova história.","en":"New scene, new story.","mood":"piscando","pose":"pisca"},{"pt":"O universo expandido continua.","en":"The expanded universe continues.","mood":"pensando","pose":"pensa"},{"pt":"Mais um vídeo no catálogo.","en":"Another video in the catalog.","mood":"animado","pose":"fala"},{"pt":"Pode seguir. Ainda tem história.","en":"Keep going. There’s more to the story.","mood":"neutro","pose":"joinha"}],"musica_play":[{"pt":"Trilha sonora ativada. Agora sim.","en":"Soundtrack on. That’s better.","mood":"feliz","pose":"sorriso"},{"pt":"Até o cenário ganhou tema musical.","en":"Even the set has theme music now.","mood":"piscando","pose":"pisca"},{"pt":"Se fosse uma sitcom, entrava a abertura.","en":"If this were a sitcom, cue the intro.","mood":"pensando","pose":"pensa"},{"pt":"Dá o play. Eu cuido da vibe.","en":"Hit play. I’ll handle the vibe.","mood":"animado","pose":"fala"},{"pt":"Uma boa ideia pede uma boa música.","en":"Good ideas deserve good music.","mood":"neutro","pose":"joinha"}],"musica_troca":[{"pt":"Próxima faixa. O DJ é você.","en":"Next track. You’re the DJ.","mood":"feliz","pose":"sorriso"},{"pt":"Mudança de clima. Novo arco musical.","en":"Mood change. New musical arc.","mood":"piscando","pose":"pisca"},{"pt":"Essa playlist tem várias personalidades.","en":"This playlist has many personalities.","mood":"pensando","pose":"pensa"},{"pt":"Outra música, mesma vontade de criar.","en":"New song, same urge to create.","mood":"animado","pose":"fala"},{"pt":"Troca de trilha. Cena nova.","en":"New soundtrack. New scene.","mood":"neutro","pose":"joinha"}],"spotify":[{"pt":"Meu Spotify tem seus próprios plot twists.","en":"My Spotify has its own plot twists.","mood":"feliz","pose":"sorriso"},{"pt":"Pode julgar meu gosto musical. Com carinho.","en":"Judge my music taste. Gently.","mood":"piscando","pose":"pisca"},{"pt":"O algoritmo me conhece bem demais.","en":"The algorithm knows me a little too well.","mood":"pensando","pose":"pensa"},{"pt":"Minha trilha sonora tem vários gêneros.","en":"My soundtrack covers a lot of genres.","mood":"animado","pose":"fala"},{"pt":"A playlist entrega um pouco da personalidade.","en":"The playlist reveals some personality.","mood":"neutro","pose":"joinha"}],"foto_proxima":[{"pt":"Outro ângulo. A história continua.","en":"Another angle. The story continues.","mood":"feliz","pose":"sorriso"},{"pt":"Mudança de câmera. Gostei dessa perspectiva.","en":"Camera switch. Love this perspective.","mood":"piscando","pose":"pisca"},{"pt":"Mais um frame pra coleção.","en":"Another frame for the collection.","mood":"pensando","pose":"pensa"},{"pt":"O detalhe seguinte também merece atenção.","en":"The next detail deserves attention too.","mood":"animado","pose":"fala"},{"pt":"Próxima foto. Sem precisar esperar o carrossel.","en":"Next photo. No carousel wait required.","mood":"neutro","pose":"joinha"}],"form_enviado":[{"pt":"Mensagem enviada. To be continued...","en":"Message sent. To be continued…","mood":"feliz","pose":"sorriso"},{"pt":"Recebido! O próximo episódio é nossa conversa.","en":"Got it! Next episode: our conversation.","mood":"piscando","pose":"pisca"},{"pt":"Pronto! Agora é comigo.","en":"All set! My turn now.","mood":"pensando","pose":"pensa"},{"pt":"Deu certo. Adoro um bom começo.","en":"It worked. Love a good beginning.","mood":"animado","pose":"fala"},{"pt":"Mensagem a caminho. Obrigado pelo contato!","en":"Message on its way. Thanks for reaching out!","mood":"neutro","pose":"joinha"}],"form_erro":[{"pt":"Ops! Esse episódio precisa de outra tomada.","en":"Oops! This episode needs another take.","mood":"feliz","pose":"sorriso"},{"pt":"Algo não foi. Vamos tentar de novo?","en":"Something didn’t work. Try again?","mood":"piscando","pose":"pisca"},{"pt":"Pequeno plot twist. Confere os campos?","en":"Tiny plot twist. Check the fields?","mood":"pensando","pose":"pensa"},{"pt":"Até os formulários têm dias difíceis.","en":"Even forms have off days.","mood":"animado","pose":"fala"},{"pt":"Quase lá. Só falta ajustar um detalhe.","en":"Almost there. Just one detail to fix.","mood":"neutro","pose":"joinha"}],"arrastar":[{"pt":"Tá dirigindo a arte da minha mesa?","en":"Are you art-directing my desk?","mood":"feliz","pose":"sorriso"},{"pt":"Gostei! Uma segunda opinião de direção de arte.","en":"Nice! A second opinion on art direction.","mood":"piscando","pose":"pisca"},{"pt":"Modo decoração ativado.","en":"Decoration mode activated.","mood":"pensando","pose":"pensa"},{"pt":"Pode mover. Eu também mexeria em tudo.","en":"Move things around. I would too.","mood":"animado","pose":"fala"},{"pt":"A composição mudou. Interessante.","en":"The composition changed. Interesting.","mood":"neutro","pose":"joinha"}],"reorganizar":[{"pt":"A Monica Geller aprovaria essa organização.","en":"Monica Geller would approve of this setup.","mood":"feliz","pose":"sorriso"},{"pt":"Arrumou tudo? Preciso dessa energia aqui.","en":"Organized everything? I need that energy.","mood":"piscando","pose":"pisca"},{"pt":"Minha mesa ganhou um episódio de makeover.","en":"My desk got a makeover episode.","mood":"pensando","pose":"pensa"},{"pt":"Ficou organizado. Um evento raro por aqui.","en":"It’s tidy. A rare event around here.","mood":"animado","pose":"fala"},{"pt":"A direção de arte agradece a colaboração.","en":"Art direction appreciates your help.","mood":"neutro","pose":"joinha"}],"cracha":[{"pt":"Minha ficha de personagem. Versão profissional.","en":"My character sheet. Professional edition.","mood":"feliz","pose":"sorriso"},{"pt":"Victor Trindade. Prazer, oficialmente.","en":"Victor Trindade. Officially, nice to meet you.","mood":"piscando","pose":"pisca"},{"pt":"Meu crachá. Faltou a foto 3x4 dramática.","en":"My badge. Missing an awkward ID photo.","mood":"pensando","pose":"pensa"},{"pt":"É quase meu perfil na Dunder Mifflin.","en":"Almost my Dunder Mifflin profile.","mood":"animado","pose":"fala"},{"pt":"Identidade revelada. Sem plot twist.","en":"Identity revealed. No plot twist.","mood":"neutro","pose":"joinha"}],"messenger":[{"pt":"Saudades de um bom subnick no MSN.","en":"Remember when MSN statuses were a big deal?","mood":"feliz","pose":"sorriso"},{"pt":"Não dá pra chamar atenção. Melhor assim.","en":"No nudge button. Probably for the best.","mood":"piscando","pose":"pisca"},{"pt":"Se você usou MSN, conhece esse sentimento.","en":"If you used MSN, you know the feeling.","mood":"pensando","pose":"pensa"},{"pt":"Faltou o barulhinho de alguém entrando.","en":"Missing that classic sign-in sound.","mood":"animado","pose":"fala"},{"pt":"Status: ocupado criando alguma coisa.","en":"Status: busy making something.","mood":"neutro","pose":"joinha"}],"postit":[{"pt":"Meu Notion antes do Notion.","en":"My Notion before Notion.","mood":"feliz","pose":"sorriso"},{"pt":"Algumas ideias começam num papelzinho.","en":"Some ideas start on a tiny note.","mood":"piscando","pose":"pisca"},{"pt":"Se eu anotei, é porque achei importante.","en":"If I wrote it down, I thought it mattered.","mood":"pensando","pose":"pensa"},{"pt":"Esse post-it tem energia de pista de CSI.","en":"This note has CSI clue energy.","mood":"animado","pose":"fala"},{"pt":"Organização analógica. Um clássico.","en":"Analog organization. A classic.","mood":"neutro","pose":"joinha"}],"lapis":[{"pt":"A ferramenta que nunca pediu atualização.","en":"The tool that never asked for an update.","mood":"feliz","pose":"sorriso"},{"pt":"Antes do Photoshop, tinha esse clássico.","en":"Before Photoshop, there was this classic.","mood":"piscando","pose":"pisca"},{"pt":"Toda ideia pode começar num rabisco.","en":"Every idea can start as a sketch.","mood":"pensando","pose":"pensa"},{"pt":"Sem bateria, sem login. Perfeito.","en":"No battery, no login. Perfect.","mood":"animado","pose":"fala"},{"pt":"Um lápis e uma ideia: dupla antiga.","en":"A pencil and an idea: an old-school duo.","mood":"neutro","pose":"joinha"}],"bolinha":[{"pt":"Um easter egg. Porque não?","en":"An easter egg. Why not?","mood":"feliz","pose":"sorriso"},{"pt":"Sim, até minha mesa tem distrações.","en":"Yep, even my desk has distractions.","mood":"piscando","pose":"pisca"},{"pt":"Você achou a side quest da bolinha.","en":"You found the ball side quest.","mood":"pensando","pose":"pensa"},{"pt":"Essa interação não estava no briefing. Ou estava?","en":"This wasn’t in the brief. Or was it?","mood":"animado","pose":"fala"},{"pt":"Pequena pausa recreativa autorizada.","en":"Tiny recreational break approved.","mood":"neutro","pose":"joinha"}],"toggle":[{"pt":"Mudança de cenário. Plot twist visual.","en":"Scene change. Visual plot twist.","mood":"feliz","pose":"sorriso"},{"pt":"A luz mudou. A vibe também.","en":"New lighting, new vibe.","mood":"piscando","pose":"pisca"},{"pt":"Direção de fotografia, versão interativa.","en":"Cinematography, interactive edition.","mood":"pensando","pose":"pensa"},{"pt":"Outro clima, mesmo quarto.","en":"Different mood, same room.","mood":"animado","pose":"fala"},{"pt":"Essa mudança merecia um corte de sitcom.","en":"This change deserves a sitcom cut.","mood":"neutro","pose":"joinha"}],"polaroid_video":[{"pt":"Amo making of. Às vezes mais que o filme.","en":"Love making-ofs. Sometimes more than the movie.","mood":"feliz","pose":"sorriso"},{"pt":"Bastidores desbloqueados.","en":"Behind the scenes unlocked.","mood":"piscando","pose":"pisca"},{"pt":"Essa é a parte fora do resultado final.","en":"This is the part beyond the final result.","mood":"pensando","pose":"pensa"},{"pt":"Tem história por trás de cada frame.","en":"Every frame has a story behind it.","mood":"animado","pose":"fala"},{"pt":"O processo também merece aparecer.","en":"The process deserves screen time too.","mood":"neutro","pose":"joinha"}]},"tracks":[{"name":"Runaway (U \u0026 I)","artist":"","dur":"","src":"","cover":"/uploads/2026/10/14d01c7521a4830164239878.jpg","url":"https://open.spotify.com/track/46lFttIf5hnUZMGvjK0Wxo"},{"name":"3 Strikes","artist":"","dur":"","src":"","cover":"/uploads/2026/10/e99f4b031d8d39948ea98778.jpg","url":"https://open.spotify.com/track/4BmCux1wx34yc5KoRMSmqx"},{"name":"bittersweet","artist":"","dur":"","src":"","cover":"/uploads/2026/10/e2c63a9adb104c4f141a1cc5.jpg","url":"https://open.spotify.com/track/6vDVu9IM9s8L8XMQ1c1Yti"},{"name":"Escapism.","artist":"","dur":"","src":"","cover":"/uploads/2026/10/ba4ec1e73653cddb71d0b604.jpg","url":"https://open.spotify.com/track/5mHdCZtVyb4DcJw8799hZp"},{"name":"pov","artist":"","dur":"","src":"","cover":"/uploads/2026/10/6a396544fbf2e15a3727c127.jpg","url":"https://open.spotify.com/track/3UoULw70kMsiVXxW0L3A33"},{"name":"KILLSWITCH","artist":"","dur":"","src":"","cover":"/uploads/2026/10/d039067288e37b8560d9e1a5.jpg","url":"https://open.spotify.com/track/2ONOuIhH0c9h8ioIxr2msm"},{"name":"Fireflies","artist":"","dur":"","src":"","cover":"/uploads/2026/10/ba2b4200fec78f78c7060075.jpg","url":"https://open.spotify.com/track/3DamFFqW32WihKkTVlwTYQ"},{"name":"If U Seek Amy","artist":"","dur":"","src":"","cover":"/uploads/2026/10/ecb5958240d7f577c47d198c.jpg","url":"https://open.spotify.com/track/2hdy9Wt9qp7M7d0U3ossu2"},{"name":"LoveGame","artist":"","dur":"","src":"","cover":"/uploads/2026/10/73b65b8a387d47be3520f44c.jpg","url":"https://open.spotify.com/track/0eH2eHURaXUP15D8gQlfjx"}],"spotify":"https://open.spotify.com/playlist/0qutRvJxsk6rL2GZLFC6i6?si=pWCgcdyFTtScPxZyf_qy0w"}</script>
+<script src="/static/js/boot.js?v=1792207625"></script>
+<script src="/static/js/dc.js?v=1792207625"></script>
+<script src="/static/js/app.js?v=1792207625"></script>
+
+</body>
+</html>
