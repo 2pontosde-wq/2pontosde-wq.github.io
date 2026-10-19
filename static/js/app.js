@@ -97,7 +97,7 @@ var T = {
     skills: ['Direção de arte', 'Identidade visual', 'Embalagem', 'Prototipagem', 'Edição de imagem', 'Edição de vídeo', 'Criação digital', 'Criatividade', 'Organização', 'Atenção aos detalhes', 'Versatilidade'],
     portrait: 'Seu retrato real · demo', stickerSobreAlt: 'Avatar do Victor piscando', hi: 'Oi, eu sou o Victor Trindade.', bio: 'Publicitário e criador multidisciplinar. Transito entre campanhas, embalagens, peças personalizadas, papelaria, sites e vídeos — sempre buscando a ideia que transforma um briefing em resultado. (texto de exemplo)',
     valores: 'Curiosidade, atenção aos detalhes, versatilidade.', processo: 'Briefing → pesquisa → conceito → protótipo → arte final → entrega.',
-    favMarq: 'O QUE ME INSPIRA ★ FILMES ★ SÉRIES ★ JOGOS ★ ÁLBUNS ★ REFERÊNCIAS ★ REPERTÓRIO ★ CULTURA POP ★ ', coversDemo: 'capas · demo', cover: '[capa]',
+    favMarq: 'ME CONHEÇA PELAS MINHAS REFERÊNCIAS ★ FILMES ★ SÉRIES ★ JOGOS ★ ÁLBUNS ★ O QUE ME INSPIRA ★ ', coversDemo: 'capas · demo', cover: '[capa]',
     favs: [['Filmes', 'Filme'], ['Jogos', 'Jogo'], ['Séries', 'Série'], ['Álbuns', 'Álbum']],
     plTag: 'faixas de exemplo', plBig: 'Trilha do\nestúdio', plGenre: 'LO-FI · CHIPTUNE · SYNTH · FEITAS PARA A PRÉVIA', plPop: 'Mais tocadas', cMarq: 'VAMOS CRIAR JUNTOS ✦ ORÇAMENTOS ✦ PARCERIAS ✦ IDEIAS ✦ ', cReply: 'respondo em até 2 dias úteis (exemplo)', ex: 'exemplo', phName: 'como posso te chamar?', phEmail: 'seu@email.com', phSubj: 'embalagem, campanha, site…', phMsg: 'conta a ideia aqui :)', pcTitle: 'enviado!', vfHint: '← arraste para o lado →', crachaAria: 'Crachá: abrir Sobre Mim', crachaRole: 'publicitário & criador', crachaFoot: 'ACESSO: ESTÚDIO', stampTxt: 'aprovado', badgeTxt: '✦ DISPONÍVEL PARA PROJETOS ✦ FREELA ✦ PARCERIAS ', pcAgain: 'Escrever outra', plTitle: 'A trilha do estúdio', plIntro: 'O que toca enquanto eu crio. Troque as faixas no admin ou cole o link da sua playlist.', plLcd: 'PLAYLIST DO ESTÚDIO',
     noAudio: 'faixas demo geradas', tracksAria: 'Faixas', track: 'Faixa', artist: 'Victor Trindade · demo', plLink: 'Ouvir no Spotify', plFrom: 'do Spotify',
@@ -146,7 +146,7 @@ var T = {
     skills: ['Art direction', 'Visual identity', 'Packaging', 'Prototyping', 'Image editing', 'Video editing', 'Digital creation', 'Creativity', 'Organization', 'Attention to detail', 'Versatility'],
     portrait: 'Your real portrait · demo', stickerSobreAlt: 'Victor’s avatar winking', hi: 'Hi, I’m Victor Trindade.', bio: 'Advertiser and multidisciplinary creator. I move between campaigns, packaging, custom goods, stationery, websites and videos — always looking for the idea that turns a brief into results. (sample text)',
     valores: 'Curiosity, attention to detail, versatility.', processo: 'Briefing → research → concept → prototype → final art → delivery.',
-    favMarq: 'WHAT INSPIRES ME ★ MOVIES ★ SERIES ★ GAMES ★ ALBUMS ★ REFERENCES ★ REPERTOIRE ★ POP CULTURE ★ ', coversDemo: 'covers · demo', cover: '[cover]',
+    favMarq: 'GET TO KNOW ME THROUGH MY REFERENCES ★ MOVIES ★ SERIES ★ GAMES ★ ALBUMS ★ WHAT INSPIRES ME ★ ', coversDemo: 'covers · demo', cover: '[cover]',
     favs: [['Movies', 'Movie'], ['Games', 'Game'], ['Series', 'Series'], ['Albums', 'Album']],
     plTag: 'sample tracks', plBig: 'Studio\nsoundtrack', plGenre: 'LO-FI · CHIPTUNE · SYNTH · MADE FOR THE PREVIEW', plPop: 'Most played', cMarq: 'LET\u2019S CREATE TOGETHER ✦ QUOTES ✦ PARTNERSHIPS ✦ IDEAS ✦ ', cReply: 'I reply within 2 business days (example)', ex: 'example', phName: 'what should I call you?', phEmail: 'you@email.com', phSubj: 'packaging, campaign, website…', phMsg: 'tell me the idea :)', pcTitle: 'sent!', vfHint: '← drag sideways →', crachaAria: 'ID badge: open About Me', crachaRole: 'advertiser & creator', crachaFoot: 'ACCESS: STUDIO', stampTxt: 'approved', badgeTxt: '✦ AVAILABLE FOR PROJECTS ✦ FREELANCE ✦ PARTNERSHIPS ', pcAgain: 'Write another', plTitle: 'The studio soundtrack', plIntro: 'What plays while I create. Swap the tracks in the admin or paste your playlist link.', plLcd: 'STUDIO PLAYLIST',
     noAudio: 'generated demo tracks', tracksAria: 'Tracks', track: 'Track', artist: 'Victor Trindade · demo', plLink: 'Listen on Spotify', plFrom: 'from Spotify',
@@ -401,11 +401,14 @@ function withGlb(cfg, p) { if (p && p.glb) cfg.glb = p.glb; return cfg; }
   try {
     if (SITE.texts) ['pt', 'en'].forEach(function (l) { if (SITE.texts[l]) Object.keys(SITE.texts[l]).forEach(function (k) { T[l][k] = SITE.texts[l][k]; }); });
     var PJ = SITE.projects || {};
+    var SUBC = SITE.subcats || {};
+    var tagIdx = function (key, tag) { var L = SUBC[key]; if (!L) return tag || 1; for (var q = 0; q < L.length; q++) if (L[q].id === tag) return q + 1; return -1; };
     CATS.forEach(function (c) {
+      if (SUBC[c.key]) c.filters = [c.filters[0]].concat(SUBC[c.key].map(function (x) { return P(x.pt, x.en || x.pt); }));
       var list = PJ[c.key]; if (!list || !list.length) { CAT_EMPTY[c.key] = 1; return; }
       c._data = list;
       if (c.key === 'grafica') return;
-      c.projects = list.map(function (p) { return [p.title, p.tag || 1, undefined, p]; });
+      c.projects = list.map(function (p) { return [p.title, tagIdx(c.key, p.tag), undefined, p]; });
       var imgs = []; list.forEach(function (p) { (p.images || []).forEach(function (im) { imgs.push(im); }); });
       if (imgs.length) {
         IMG[c.key] = list.map(function (p) { return p.images && p.images[0] ? p.images[0].src : imgs[0].src; });
@@ -422,7 +425,7 @@ function withGlb(cfg, p) { if (p && p.glb) cfg.glb = p.glb; return cfg; }
     }
     if (PJ.grafica && PJ.grafica.length) {
       var MODE = { card: 0, flyer: 1, banner: 2, voucher: 3, sheet: 4 };
-      GP_SITE = PJ.grafica.map(function (p) { var a = p.art || {}; return { name: p.title, tag: p.tag || 1, mode: MODE[p.kind] || 0, f: a.front || '', b: a.back || '', mf: a.mask_front || '', mb: a.mask_back || '', vert: !!p.vertical }; }).filter(function (g) { return g.f; });
+      GP_SITE = PJ.grafica.map(function (p) { var a = p.art || {}; return { name: p.title, tag: tagIdx('grafica', p.tag), mode: MODE[p.kind] || 0, f: a.front || '', b: a.back || '', mf: a.mask_front || '', mb: a.mask_back || '', vert: !!p.vertical }; }).filter(function (g) { return g.f; });
       if (!GP_SITE.length) GP_SITE = null;
     }
     if (SITE.tracks && SITE.tracks.length) TRACKS = SITE.tracks.map(function (x, i) { return { name: x.name, src: x.src || '', d: x.dur || '', c: x.cover || COVERS[3][i % 5], url: x.url || '', artist: x.artist || '', sp: (/track[\/:]([A-Za-z0-9]{22})/.exec(x.url || '') || [])[1] || '' }; });
@@ -447,6 +450,7 @@ var LOUD_OLD = { sobre: 1, projetos: 1, skills: 1, videos: 1, playlist: 1, metri
 var MOOD_ALIAS = { happy: 'feliz', alegre: 'feliz', sorrindo: 'feliz', contente: 'feliz', thinking: 'pensando', pensativo: 'pensando', curioso: 'pensando', cansado: 'pensando', surprised: 'surpreso', surpresa: 'surpreso', wink: 'piscando', piscadinha: 'piscando', sarcastico: 'piscando', ironico: 'piscando', debochado: 'piscando', love: 'apaixonado', apaixonada: 'apaixonado', idea: 'ideia', focused: 'concentrado', focado: 'concentrado', celebrating: 'celebrando', orgulhoso: 'celebrando', rindo: 'celebrando', confused: 'confuso', nervous: 'nervoso', ansioso: 'nervoso', excited: 'animado', empolgado: 'animado', music: 'musica', shocked: 'chocado', angry: 'bravo', irritado: 'bravo', shy: 'timido', envergonhado: 'timido', neutral: 'neutro', calmo: 'neutro', serio: 'neutro' };
 var POSE_ALIAS = { wave: 'tchau', acenando: 'tchau', thumbs: 'joinha', thumbsup: 'joinha', ok: 'joinha', smile: 'sorriso', sorrindo: 'sorriso', laugh: 'ri', rindo: 'ri', risada: 'ri', wink: 'pisca', piscando: 'pisca', piscadinha: 'pisca', surpreso: 'o', surprise: 'o', espanto: 'o', think: 'pensa', pensando: 'pensa', pensativo: 'pensa', side: 'lado', olhando: 'lado', apaixonado: 'love', coracao: 'love', talk: 'fala', falando: 'fala', computador: 'laptop', notebook: 'laptop', trabalhando: 'laptop', neutral: 'neutro' };
 function split2(s) {
+  return String(s || '');
   s = String(s || '');
   if (s.length < 34 || s.indexOf('\n') >= 0) return s;
   var mid = s.length / 2, best = -1, bd = 1e9, re = /[.!?…:;](?=\s)|,(?=\s)| —(?=\s)/g, m, strong = /[.!?…:;]/;
@@ -1021,6 +1025,8 @@ class Component extends DCLogic {
         pick: function () { if (self.dragged()) return; if (i !== fsel) self.speak('filtro'); if (key === 'projetos') self.setState({ pfilter: i }); else if (key === 'embalagens') { var fe = embCat.projects.findIndex(function (q) { return i === 0 || q[1] === i; }); self.setState({ sub: i, embCfg: null, lid: false, embIdx: fe < 0 ? self.state.embIdx : fe }); } else if (key === 'grafica') { var fi = GP_FIRST[i] || 0; self.setState({ sub: i, prProj: fi }); } else self.setState({ sub: i, vidIdx: 0, mediaIdx: 0, siteIdx: 0, mugIdx: 0, ry: key === 'personalizados' && i === 3 ? 18 : self.state.ry }); } };
     });
 
+    filters = filters.map(function (f, i) { f.i = i; return f; }).filter(function (f) { if (f.i === 0) return false; if (key === 'projetos') return true; if (cat && cat._data) return cat.projects.some(function (q) { return q[1] === f.i; }); return true; });
+    filters.forEach(function (f) { var pk = f.pick, ii = f.i; f.pick = function () { if (fsel === ii) { if (key === 'projetos') self.setState({ pfilter: 0 }); else self.setState({ sub: 0, vidIdx: 0, mediaIdx: 0, siteIdx: 0 }); } else pk(); }; });
     var curProjects = cat ? cat.projects.map(function (p, i) { return { p: p, i: i }; }).filter(function (o) { return s.sub === 0 || o.p[1] === s.sub; }).map(function (o) {
       var imgs = IMG[cat.key] || IMG.publicidade, ph = o.p[2] === 'ph', live = o.p[2] === 'live', pd = o.p[3] && typeof o.p[3] === 'object' ? o.p[3] : null;
       var r = { name: (ph ? '' : (L === 'en' ? 'Example — ' : 'Exemplo — ')) + tr(o.p[0]), tag: tr(cat.filters[o.p[1]]) + (ph ? ' · placeholder' : ''), img: ph ? '/static/media/20f511eb3cf82e9eaa18a1af8818d1f0.jpg' : imgs[o.i % imgs.length], desk: ph ? '/static/media/20f511eb3cf82e9eaa18a1af8818d1f0.jpg' : IMG.sites[o.i % 3], mob: ph ? '/static/media/00b67958c5caf7ef52a26c7c1a2ac9f0.jpg' : SITE_MOB[o.i % 3], url: live ? o.p[3].replace(/^https?:\/\//, '').replace(/\/$/, '') : 'victortrindade.com/sites/' + ['lancamento', 'institucional', 'catalogo'][o.i % 3] , live: live, notLive: !live, liveUrl: live ? o.p[3] : ''}; if (pd) { r.name = tr(pd.title); if (pd.images && pd.images[0]) r.img = pd.images[0].src; if (pd.desk) r.desk = pd.desk; if (pd.mob) r.mob = pd.mob; if (pd.url) r.url = pd.url.replace(/^https?:\/\//, '').replace(/\/$/, ''); r.href = pd.url || ''; r.data = pd; if (pd.video && pd.video.src) r.vid = pd.video.src; } return r;
@@ -1368,7 +1374,7 @@ class Component extends DCLogic {
       form: formMsg,
       pixSrc: PX[pixKey] || PX.neutro,
       pixCls: 'pix' + (s.hop ? ' hop' : ''),
-      typed: full.slice(0, s.typed),
+      typed: full.slice(0, s.typed), typedRest: full.slice(s.typed),
       typing: typing,
       msg: full,
       stk: stk,
