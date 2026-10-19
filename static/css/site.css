@@ -914,29 +914,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
  .hw{font-size:28px}.hw.big{font-size:38px}
  .d-hw1{top:104px !important}.d-hw2{top:138px !important}.d-hw3{top:168px !important}
 }
-/* celular: mesa organizada (3 bilhetes alinhados) */
+/* celular: home limpa, só a janelinha do Messenger */
 @media (max-width:759px){
- .drag.d-cracha,.d-bubble,.d-cursor,.d-toggle,.d-pencil,.d-blk1{display:none !important}
- .drag.d-blue,.drag.d-sketch{display:block !important}
- .d-check{left:5% !important;top:400px !important;z-index:7 !important}
- .d-check .note-y{scale:.62;transform-origin:0 0}
- .drag.d-blue{left:36% !important;top:404px !important;z-index:8 !important}
- .d-blue .note-b{scale:.64;transform-origin:0 0}
- .drag.d-sketch{left:67% !important;top:398px !important;z-index:7 !important}
- .d-sketch .sketch{scale:.66;transform-origin:0 0}
+ .d-check,.drag.d-blue,.drag.d-sketch,.drag.d-cracha,.d-bubble,.d-cursor,.d-toggle,.d-pencil,.d-blk1,.d-winbtns,.d-ball,.d-badges,.d-ticket{display:none !important}
+ .drag.d-im{display:block !important;left:50% !important;top:404px !important;margin-left:-133px;z-index:8 !important}
+ .d-im .im{scale:1.25;transform-origin:0 0}
 }
 @media (max-width:759px) and (max-height:780px){
- .d-check{top:380px !important}.d-check .note-y{scale:.56}
- .drag.d-blue{top:384px !important}.d-blue .note-b{scale:.52}
- .drag.d-sketch{top:378px !important}.d-sketch .sketch{scale:.48}
+ .drag.d-im{top:390px !important;margin-left:-117px}.d-im .im{scale:1.1}
 }
 @media (max-width:759px) and (max-height:720px){
- .d-check{top:314px !important}.d-check .note-y{scale:.48}
- .drag.d-blue{top:318px !important}.d-blue .note-b{scale:.44}
- .drag.d-sketch{top:312px !important}.d-sketch .sketch{scale:.42}
+ .drag.d-im{top:316px !important;margin-left:-106px}.d-im .im{scale:1}
 }
 @media (max-width:759px) and (max-height:570px){
- .d-check,.drag.d-blue,.drag.d-sketch{display:none !important}
+ .drag.d-im{display:none !important}
 }
 @media (prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none !important;transition:none !important}

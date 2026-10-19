@@ -97,7 +97,7 @@ var T = {
     skills: ['Direção de arte', 'Identidade visual', 'Embalagem', 'Prototipagem', 'Edição de imagem', 'Edição de vídeo', 'Criação digital', 'Criatividade', 'Organização', 'Atenção aos detalhes', 'Versatilidade'],
     portrait: 'Seu retrato real · demo', stickerSobreAlt: 'Avatar do Victor piscando', hi: 'Oi, eu sou o Victor Trindade.', bio: 'Publicitário e criador multidisciplinar. Transito entre campanhas, embalagens, peças personalizadas, papelaria, sites e vídeos — sempre buscando a ideia que transforma um briefing em resultado. (texto de exemplo)',
     valores: 'Curiosidade, atenção aos detalhes, versatilidade.', processo: 'Briefing → pesquisa → conceito → protótipo → arte final → entrega.',
-    favMarq: 'O QUE ME INSPIRA ★ ', coversDemo: 'capas · demo', cover: '[capa]',
+    favMarq: 'O QUE ME INSPIRA ★ FILMES ★ SÉRIES ★ JOGOS ★ ÁLBUNS ★ REFERÊNCIAS ★ REPERTÓRIO ★ CULTURA POP ★ ', coversDemo: 'capas · demo', cover: '[capa]',
     favs: [['Filmes', 'Filme'], ['Jogos', 'Jogo'], ['Séries', 'Série'], ['Álbuns', 'Álbum']],
     plTag: 'faixas de exemplo', plBig: 'Trilha do\nestúdio', plGenre: 'LO-FI · CHIPTUNE · SYNTH · FEITAS PARA A PRÉVIA', plPop: 'Mais tocadas', cMarq: 'VAMOS CRIAR JUNTOS ✦ ORÇAMENTOS ✦ PARCERIAS ✦ IDEIAS ✦ ', cReply: 'respondo em até 2 dias úteis (exemplo)', ex: 'exemplo', phName: 'como posso te chamar?', phEmail: 'seu@email.com', phSubj: 'embalagem, campanha, site…', phMsg: 'conta a ideia aqui :)', pcTitle: 'enviado!', vfHint: '← arraste para o lado →', crachaAria: 'Crachá: abrir Sobre Mim', crachaRole: 'publicitário & criador', crachaFoot: 'ACESSO: ESTÚDIO', stampTxt: 'aprovado', badgeTxt: '✦ DISPONÍVEL PARA PROJETOS ✦ FREELA ✦ PARCERIAS ', pcAgain: 'Escrever outra', plTitle: 'A trilha do estúdio', plIntro: 'O que toca enquanto eu crio. Troque as faixas no admin ou cole o link da sua playlist.', plLcd: 'PLAYLIST DO ESTÚDIO',
     noAudio: 'faixas demo geradas', tracksAria: 'Faixas', track: 'Faixa', artist: 'Victor Trindade · demo', plLink: 'Ouvir no Spotify', plFrom: 'do Spotify',
@@ -146,7 +146,7 @@ var T = {
     skills: ['Art direction', 'Visual identity', 'Packaging', 'Prototyping', 'Image editing', 'Video editing', 'Digital creation', 'Creativity', 'Organization', 'Attention to detail', 'Versatility'],
     portrait: 'Your real portrait · demo', stickerSobreAlt: 'Victor’s avatar winking', hi: 'Hi, I’m Victor Trindade.', bio: 'Advertiser and multidisciplinary creator. I move between campaigns, packaging, custom goods, stationery, websites and videos — always looking for the idea that turns a brief into results. (sample text)',
     valores: 'Curiosity, attention to detail, versatility.', processo: 'Briefing → research → concept → prototype → final art → delivery.',
-    favMarq: 'WHAT INSPIRES ME ★ ', coversDemo: 'covers · demo', cover: '[cover]',
+    favMarq: 'WHAT INSPIRES ME ★ MOVIES ★ SERIES ★ GAMES ★ ALBUMS ★ REFERENCES ★ REPERTOIRE ★ POP CULTURE ★ ', coversDemo: 'covers · demo', cover: '[cover]',
     favs: [['Movies', 'Movie'], ['Games', 'Game'], ['Series', 'Series'], ['Albums', 'Album']],
     plTag: 'sample tracks', plBig: 'Studio\nsoundtrack', plGenre: 'LO-FI · CHIPTUNE · SYNTH · MADE FOR THE PREVIEW', plPop: 'Most played', cMarq: 'LET\u2019S CREATE TOGETHER ✦ QUOTES ✦ PARTNERSHIPS ✦ IDEAS ✦ ', cReply: 'I reply within 2 business days (example)', ex: 'example', phName: 'what should I call you?', phEmail: 'you@email.com', phSubj: 'packaging, campaign, website…', phMsg: 'tell me the idea :)', pcTitle: 'sent!', vfHint: '← drag sideways →', crachaAria: 'ID badge: open About Me', crachaRole: 'advertiser & creator', crachaFoot: 'ACCESS: STUDIO', stampTxt: 'approved', badgeTxt: '✦ AVAILABLE FOR PROJECTS ✦ FREELANCE ✦ PARTNERSHIPS ', pcAgain: 'Write another', plTitle: 'The studio soundtrack', plIntro: 'What plays while I create. Swap the tracks in the admin or paste your playlist link.', plLcd: 'STUDIO PLAYLIST',
     noAudio: 'generated demo tracks', tracksAria: 'Tracks', track: 'Track', artist: 'Victor Trindade · demo', plLink: 'Listen on Spotify', plFrom: 'from Spotify',
@@ -432,6 +432,10 @@ function withGlb(cfg, p) { if (p && p.glb) cfg.glb = p.glb; return cfg; }
     if (SITE.comps && SITE.comps.length) SKILLS_SITE = SITE.comps;
     if (SITE.metrics && SITE.metrics.length) METS_SITE = SITE.metrics.map(function (m) { return { v: +m.v || 0, d: m.d ? 1 : 0, pre: m.pre || '', suf: P(m.suf_pt || m.suf || '', m.suf_en || m.suf || ''), l: P(m.label_pt || '', m.label_en || m.label_pt || ''), c: m.color || '#e9558b' }; });
     if (SITE.favs) SITE.favs.forEach(function (g, gi) { if (g && g.length && COVERS[gi]) { COVERS[gi] = g.map(function (x) { return x.img; }); COVER_NAMES[gi] = g.map(function (x) { return x.name; }); } });
+    ['pt', 'en'].forEach(function (l) {
+      ['demo', 'demo1', 'coversDemo', 'metTag', 'photoDemo', 'ex', 'lvl', 'radarNote', 'demoClip', 'noFileShort', 'dieNote'].forEach(function (k) { if (typeof T[l][k] === 'string' && !(SITE.texts && SITE.texts[l] && SITE.texts[l][k])) T[l][k] = ''; });
+      Object.keys(T[l]).forEach(function (k) { var v = T[l][k]; if (typeof v === 'string' && !(SITE.texts && SITE.texts[l] && SITE.texts[l][k])) T[l][k] = v.replace(/\s*\((texto de )?(exemplo|example)\)/gi, '').replace(/\s*[—-]\s*texto de exemplo/gi, '').replace(/\s*·\s*demo/gi, '').replace(/^Texto de exemplo\s*—\s*/i, ''); });
+    });
     if (SITE.stickers) Object.keys(SITE.stickers).forEach(function (k) { STICKERS[k] = SITE.stickers[k]; });
   } catch (e) { if (window.console) console.warn('applySite', e); }
 })();
@@ -1320,7 +1324,7 @@ class Component extends DCLogic {
       filters: filters,
       v: (function (vv) { if (EMPTYC) { Object.keys(vv).forEach(function (k) { vv[k] = false; }); vv.emptyCat = true; } return vv; })({
         emb: false, embD: embD, sites: key === 'sites' && mobile, sitesD: sitesD, videos: key === 'videos' && mobile, videosD: vD, baloes: key === 'baloes',
-        plM: key === 'playlist' && mobile, generic: !!cat && ['sites', 'videos', 'grafica'].indexOf(key) < 0 && !persD && !galD && key !== 'grafica', grafica: key === 'grafica', grafM: key === 'grafica' && mobile, persD: persD, persM: false, genVid: !!cat && mobile && ['sites', 'videos', 'grafica'].indexOf(key) < 0, galD: galD, skillsD: skD, metricas: key === 'metricas',
+        plM: key === 'playlist' && mobile, generic: !!cat && ['sites', 'videos', 'grafica'].indexOf(key) < 0 && !persD && !galD && key !== 'grafica', grafica: key === 'grafica', grafM: key === 'grafica' && mobile, persD: persD, persM: false, genVid: !!cat && mobile && ['sites', 'videos', 'grafica'].indexOf(key) < 0 && !!(cat._video || !cat._data), galD: galD, skillsD: skD, metricas: key === 'metricas',
         projetos: key === 'projetos', skills: key === 'skills' && mobile, sobre: key === 'sobre', contato: key === 'contato', playlist: key === 'playlist'
       }),
       cur: cat ? { key: cat.key, title: tr(cat.title), intro: tr(cat.intro), video: tr(cat.video), icon: cat.icon } : { key: '', title: '', intro: '', video: '', icon: '' },
