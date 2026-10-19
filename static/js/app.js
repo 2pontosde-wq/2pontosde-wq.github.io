@@ -450,7 +450,7 @@ var LOUD_OLD = { sobre: 1, projetos: 1, skills: 1, videos: 1, playlist: 1, metri
 var MOOD_ALIAS = { happy: 'feliz', alegre: 'feliz', sorrindo: 'feliz', contente: 'feliz', thinking: 'pensando', pensativo: 'pensando', curioso: 'pensando', cansado: 'pensando', surprised: 'surpreso', surpresa: 'surpreso', wink: 'piscando', piscadinha: 'piscando', sarcastico: 'piscando', ironico: 'piscando', debochado: 'piscando', love: 'apaixonado', apaixonada: 'apaixonado', idea: 'ideia', focused: 'concentrado', focado: 'concentrado', celebrating: 'celebrando', orgulhoso: 'celebrando', rindo: 'celebrando', confused: 'confuso', nervous: 'nervoso', ansioso: 'nervoso', excited: 'animado', empolgado: 'animado', music: 'musica', shocked: 'chocado', angry: 'bravo', irritado: 'bravo', shy: 'timido', envergonhado: 'timido', neutral: 'neutro', calmo: 'neutro', serio: 'neutro' };
 var POSE_ALIAS = { wave: 'tchau', acenando: 'tchau', thumbs: 'joinha', thumbsup: 'joinha', ok: 'joinha', smile: 'sorriso', sorrindo: 'sorriso', laugh: 'ri', rindo: 'ri', risada: 'ri', wink: 'pisca', piscando: 'pisca', piscadinha: 'pisca', surpreso: 'o', surprise: 'o', espanto: 'o', think: 'pensa', pensando: 'pensa', pensativo: 'pensa', side: 'lado', olhando: 'lado', apaixonado: 'love', coracao: 'love', talk: 'fala', falando: 'fala', computador: 'laptop', notebook: 'laptop', trabalhando: 'laptop', neutral: 'neutro' };
 function split2(s) {
-  return String(s || '');
+  return String(s || '').replace(/([.!?…]+["”’)]*)\s+(?=\S)/g, '$1\n');
   s = String(s || '');
   if (s.length < 34 || s.indexOf('\n') >= 0) return s;
   var mid = s.length / 2, best = -1, bd = 1e9, re = /[.!?…:;](?=\s)|,(?=\s)| —(?=\s)/g, m, strong = /[.!?…:;]/;
@@ -1367,6 +1367,7 @@ class Component extends DCLogic {
       spClick: function () { self.speak('spotify'); },
       plPlay: function () { var a = document.getElementById('aud'); var tk = TRACKS[s.plIdx]; if (tk && tk.sp && !tk.src) { if (SPC.ctrl && SPC.host && document.body.contains(SPC.host)) SPC.ctrl.togglePlay(); else { self.spWant = true; self.spSync(); } return; } if (tk && !tk.src && tk.url) { window.open(tk.url, '_blank', 'noopener'); return; } if (!a) return; if (a.paused) { self.pauseOthers(a); var pr = a.play(); if (pr && pr.catch) pr.catch(function () {}); if (!self.speak('musica_play')) self.say(M.nowPlaying, 'love'); } else a.pause(); },
       favs: favs, favsAny: favs.length > 0,
+      homeVid: SITE.home_video && SITE.home_video.src ? { src: SITE.home_video.src, poster: SITE.home_video.poster || '' } : { src: '/static/media/2155a5d02530347dbc02e2c8a8581dc0.mp4', poster: '/static/media/354da7a1f9d7a0058f43b7020f0ec827.jpg' },
       tools: TOOLS.map(function (x, i) { return { name: x[0], ab: x[1], color: x[2], lvl: x[3] || t.lvl, dl: (i * 0.3).toFixed(1) }; }),
       skills: t.skills,
       submit: function (e) { self.submitForm(e); },

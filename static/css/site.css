@@ -154,11 +154,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
 .bar{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;width:max-content;min-width:min(340px,56%);max-width:min(600px,56%);min-height:78px;background:#f6efe1;border-radius:40px;box-shadow:0 10px 24px rgba(30,15,5,.55);display:flex;align-items:center;gap:12px;padding:6px 30px 6px 8px;z-index:1100;animation:barIn .7s .2s cubic-bezier(.34,1.56,.64,1) both}
 @keyframes barIn{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
 .pix{width:66px;height:66px;border-radius:50%;background:#efe1c4;border:3px solid #1d1a17;overflow:hidden;flex:none;position:relative}
-.pix img{position:absolute;left:-14%;top:2%;width:128%;height:auto;max-width:none;image-rendering:auto}
+.pix img{position:absolute;left:0;bottom:-2px;width:100%;height:100%;object-fit:contain;object-position:50% 100%}
 .pix.hop img{animation:hop .5s ease}
 @keyframes hop{0%,100%{translate:0 0}40%{translate:0 -5px}}
 .dots{flex:none;padding:4px 9px;border:2px solid #1d1a17;border-radius:14px;font-weight:800;letter-spacing:2px;background:#fff}
-.say{flex:0 1 auto;min-width:0;max-width:44ch;white-space:normal;text-wrap:pretty;font:500 16px/1.3 Fredoka,sans-serif;color:#2b1d12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.say{flex:0 1 auto;min-width:0;max-width:46ch;white-space:pre-line;text-wrap:pretty;font:500 16px/1.3 Fredoka,sans-serif;color:#2b1d12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .caret{display:inline-block;width:2px;height:16px;background:#1d1a17;vertical-align:-3px;margin:0 -2px 0 0;animation:blinkc .8s steps(1) infinite}
 .srest{color:transparent}
 @keyframes blinkc{50%{opacity:0}}
@@ -915,25 +915,32 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
  .hw{font-size:28px}.hw.big{font-size:38px}
  .d-hw1{top:104px !important}.d-hw2{top:138px !important}.d-hw3{top:168px !important}
 }
-/* celular: home limpa — selo "portfólio" + interruptor */
+/* celular: home com elementos da mesa (sem textos) + "mais categorias" em destaque */
 @media (max-width:759px){
- .d-check,.drag.d-blue,.drag.d-sketch,.drag.d-cracha,.d-bubble,.d-cursor,.d-pencil,.d-winbtns,.d-ball,.d-badges,.d-ticket,.drag.d-im{display:none !important}
- .drag.d-blk1{display:block !important;left:9% !important;top:410px !important;z-index:8 !important}
- .d-blk1 .blk{font-size:44px;padding:8px 18px 10px}
- .d-blk1 .blksub{display:block !important;font-size:14px;margin:10px 0 0 14px}
- .drag.d-toggle{display:block !important;left:70% !important;top:416px !important;z-index:8 !important}
- .d-toggle .tog{scale:.82;transform-origin:0 0}
+ .d-check,.drag.d-blue,.drag.d-sketch,.drag.d-cracha,.d-winbtns,.d-badges,.d-ticket,.drag.d-im,.drag.d-blk1,.d-blk1{display:none !important}
+ .drag.d-toggle,.drag.d-bubble,.drag.d-cursor,.drag.d-pencil,.drag.d-ball{display:block !important;z-index:7 !important}
+ .drag.d-toggle{left:6% !important;top:398px !important}.d-toggle .tog{scale:.8;transform-origin:0 0}
+ .drag.d-bubble{left:37% !important;top:390px !important}
+ .drag.d-cursor{left:60% !important;top:452px !important}.d-cursor svg{width:40px}
+ .drag.d-pencil{left:80% !important;top:372px !important}.d-pencil > svg{scale:.62;transform-origin:0 0}
+ .drag.d-ball{left:22% !important;top:470px !important}.d-ball > *{scale:.72;transform-origin:0 0}
+ .cathint{left:50% !important;right:auto !important;transform:translateX(-50%) rotate(-2deg) !important;bottom:258px !important;font-size:13px !important;padding:7px 14px !important;z-index:700 !important;box-shadow:0 4px 0 #1d1a17,0 8px 18px rgba(30,15,5,.45) !important;animation:none !important;white-space:nowrap}
+ .cathint svg{animation:hintx 1.4s ease-in-out infinite}
 }
 @media (max-width:759px) and (max-height:780px){
- .drag.d-blk1{top:392px !important}.d-blk1 .blk{font-size:38px}
- .drag.d-toggle{top:398px !important}
+ .drag.d-toggle{top:384px !important}.drag.d-bubble{top:378px !important}.drag.d-pencil{top:362px !important}
+ .drag.d-cursor{top:430px !important}.drag.d-ball{top:446px !important}
+ .cathint{bottom:244px !important}
 }
 @media (max-width:759px) and (max-height:720px){
- .drag.d-blk1{top:318px !important}.d-blk1 .blk{font-size:32px}.d-blk1 .blksub{font-size:12px;margin-top:6px}
- .drag.d-toggle{top:324px !important}.d-toggle .tog{scale:.66}
+ .drag.d-toggle{top:316px !important}.d-toggle .tog{scale:.66}
+ .drag.d-bubble{top:312px !important;scale:.85}
+ .drag.d-pencil{top:300px !important}.d-pencil > svg{scale:.48}
+ .drag.d-cursor{top:350px !important}.drag.d-ball{display:none !important}
+ .cathint{bottom:216px !important;font-size:12px !important}
 }
 @media (max-width:759px) and (max-height:570px){
- .drag.d-blk1,.drag.d-toggle{display:none !important}
+ .drag.d-toggle,.drag.d-bubble,.drag.d-cursor,.drag.d-pencil,.drag.d-ball{display:none !important}
 }
 @media (prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none !important;transition:none !important}
