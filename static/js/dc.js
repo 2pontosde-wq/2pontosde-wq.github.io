@@ -206,7 +206,13 @@
     var pending = false, mounted = false;
     function render() {
       pending = false;
-      var vals = comp.renderVals() || {};
+      var vals;
+      try { vals = comp.renderVals() || {}; }
+      catch (e) {
+        window.__dcError = e; if (window.console) console.error('[portfolio] render', e);
+        if (!mounted && !comp.__retried) { comp.__retried = true; try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf('vt-desk') === 0) localStorage.removeItem(k); }); } catch (_) {} if (comp.dcRecover) comp.dcRecover(); try { vals = comp.renderVals() || {}; } catch (e2) { return; } }
+        else return;
+      }
       rootScope.root = vals;
       update(bindings, rootScope);
       if (mounted) { if (comp.componentDidUpdate) comp.componentDidUpdate(); }
